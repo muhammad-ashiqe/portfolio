@@ -6,9 +6,13 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 
+
 function App() {
+
   return (
     <div className="app">
+      
+      
       <Navbar />
       <Routes>
         <Route path="/" element={<Hero />} />
