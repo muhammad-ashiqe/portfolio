@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import heroImg from "../../public/dp.png"
+import heroImg from "../../public/dppp.png"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -45,7 +45,7 @@ const Hero = () => {
           {/* Your perfect profile image container */}
           <div className="w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[280px] md:h-[280px] border-2 border-blue-500/80 rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500">
             <img
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover  transition-transform duration-500"
               src={heroImg}
               alt="Ashiqe - MERN Stack Developer"
               loading="eager"
