@@ -30,8 +30,7 @@ const Projects = () => {
       className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-12"
       variants={containerVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      animate="visible"
     >
       {/* Section Header */}
       <motion.div className="text-center mb-10" variants={itemVariants}>
@@ -59,17 +58,15 @@ const Projects = () => {
       </motion.div>
 
       {/* Projects Grid */}
-      <motion.div className="w-full" variants={containerVariants}>
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto justify-items-center"
-          variants={containerVariants}
-        >
-          {projects.map((project, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <ProjectCard {...project} />
-            </motion.div>
-          ))}
-        </motion.div>
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto justify-items-center"
+        variants={containerVariants}
+      >
+        {projects.map((project, index) => (
+          <motion.div key={index} variants={itemVariants}>
+            <ProjectCard {...project} />
+          </motion.div>
+        ))}
       </motion.div>
     </motion.section>
   );

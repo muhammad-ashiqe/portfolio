@@ -5,7 +5,7 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 const ProjectCard = ({ image, title, description, tools, github, demo }) => {
   return (
     <motion.div
-      className="relative group w-full max-w-xs sm:max-w-sm md:max-w-md bg-gray-800/50 border border-gray-700 text-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:border-blue-400/50"
+      className="projectcard relative group w-full max-w-xs sm:max-w-sm md:max-w-md bg-gray-800/50 border border-gray-700 text-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:border-blue-400/50"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}

@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import heroImg from "../../public/dppp.png"
+import { Link } from "react-router-dom";
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -99,8 +101,8 @@ const Hero = () => {
             View Resume
           </a>
 
-          <a
-            href="#contact"
+          <Link to={'/contact'}><a
+            
             className="flex items-center px-5 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-300"
           >
             <svg className="w-5 h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
@@ -108,7 +110,7 @@ const Hero = () => {
               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
             </svg>
             Contact Me
-          </a>
+          </a></Link>
         </motion.div>
       </motion.div>
 

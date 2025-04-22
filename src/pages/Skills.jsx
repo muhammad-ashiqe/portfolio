@@ -45,7 +45,7 @@ const Skills = () => {
           Technologies I use to craft great web experiences.
         </p>
         <motion.div
-          className="h-[2px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent w-full max-w-xs mx-auto mt-6"
+          className="h-[2px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent w-full max-w-xs mx-auto mt-6 "
           variants={{
             hidden: { scaleX: 0, opacity: 0 },
             visible: {
