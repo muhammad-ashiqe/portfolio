@@ -41,36 +41,17 @@ export function SplashQuote({ isVisible }) {
       `}
     >
       <motion.div
-        className="max-w-md w-full px-4"
+        className="px-4 text-center"
         initial="hidden"
         animate={isVisible ? 'visible' : 'hidden'}
         variants={quoteVariants}
       >
-        <motion.div
-          className="
-            bg-blue-950
-            backdrop-blur-md
-            rounded-lg
-            shadow-lg
-            p-6
-            hover:shadow-xl
-            transition-shadow duration-300
-          "
-          whileHover={{ scale: 1.01 }}
-        >
-          <motion.h1
-            className="text-base md:text-lg font-medium text-white mb-2 leading-tight"
-            variants={quoteVariants}
-          >
-            “{currentQuote.text}”
-          </motion.h1>
-          <motion.p
-            className="text-xs md:text-sm text-blue-200 text-right italic"
-            variants={quoteVariants}
-          >
-            — {currentQuote.author}
-          </motion.p>
-        </motion.div>
+        <h1 className="text-sm md:text-xl lg:text-xl font-medium text-white leading-tight">
+          “{currentQuote.text}”
+        </h1>
+        <p className="mt-4 text-sm md:text-base italic text-blue-200">
+          — {currentQuote.author}
+        </p>
       </motion.div>
     </div>
   );
