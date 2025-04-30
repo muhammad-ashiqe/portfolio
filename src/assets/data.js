@@ -205,6 +205,28 @@ export const projects = [
     github: "https://github.com/muhammad-ashiqe/Media-Player",
     demo: "https://media-player-frontend.onrender.com/",
   },
+  {
+    title: "test player - track videos",
+    image:
+      "https://img.freepik.com/free-vector/clean-video-player-template-with-simple-buttons_1017-27217.jpg",
+    description:
+      "Media player users can add track their favorite youtube videos",
+    tools: ["React", "Bootstrap", "JsonWebserver"],
+    github: "https://github.com/muhammad-ashiqe/Media-Player",
+    demo: "https://media-player-frontend.onrender.com/",
+  },
+  
+  {
+    title: "test player - track videos",
+    image:
+      "https://img.freepik.com/free-vector/clean-video-player-template-with-simple-buttons_1017-27217.jpg",
+    description:
+      "Media player users can add track their favorite youtube videos",
+    tools: ["React", "Bootstrap", "JsonWebserver"],
+    github: "https://github.com/muhammad-ashiqe/Media-Player",
+    demo: "https://media-player-frontend.onrender.com/",
+  
+  }
  
 ];
 
