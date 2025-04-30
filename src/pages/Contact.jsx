@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { FiSend, FiCheckCircle } from "react-icons/fi";
+import emailjs from "@emailjs/browser";
 
 // Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.15, delayChildren: 0.1 },
   },
 };
-
 const itemVariants = {
   hidden: { opacity: 0, y: 10 },
   visible: {
@@ -24,19 +21,16 @@ const itemVariants = {
 };
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const formRef = useRef();
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData(f => ({ ...f, [e.target.name]: e.target.value }));
     if (errors[e.target.name]) {
-      setErrors({ ...errors, [e.target.name]: "" });
+      setErrors(e => ({ ...e, [e.target.name]: "" }));
     }
   };
 
@@ -49,7 +43,6 @@ const Contact = () => {
       newErrors.email = "Please enter a valid email";
     }
     if (!formData.message.trim()) newErrors.message = "Message is required";
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -57,15 +50,26 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-
+  
     setIsLoading(true);
-    await new Promise((res) => setTimeout(res, 1500));
-
-    setIsLoading(false);
-    setIsSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
-
-    setTimeout(() => setIsSubmitted(false), 3000);
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        }
+      );
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      alert("Failed to send message. Please try again later.");
+    } finally {
+      setIsLoading(false);
+      setTimeout(() => setIsSubmitted(false), 3000);
+    }
   };
 
   return (
@@ -77,8 +81,8 @@ const Contact = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-      {/* Subtle glow effect */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+      {/* Glowy background */}
+      <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
         <div className="absolute left-1/3 top-1/4 w-60 h-60 bg-blue-500 rounded-full blur-[80px] opacity-10" />
         <div className="absolute right-1/4 bottom-1/4 w-60 h-60 bg-purple-500 rounded-full blur-[80px] opacity-10" />
       </div>
@@ -98,11 +102,7 @@ const Contact = () => {
             visible: {
               scaleX: 1,
               opacity: 1,
-              transition: {
-                duration: 0.8,
-                ease: [0.16, 1, 0.3, 1],
-                delay: 0.3,
-              },
+              transition: { duration: 0.8, ease: [0.16,1,0.3,1], delay: 0.3 },
             },
           }}
         />
@@ -110,67 +110,78 @@ const Contact = () => {
 
       {/* Form */}
       <motion.form
+        ref={formRef}
         onSubmit={handleSubmit}
         className="max-w-xl mx-auto bg-gray-900/50 border border-gray-800 rounded-xl shadow-lg p-6 sm:p-8 backdrop-blur-md"
         variants={containerVariants}
       >
+        {/* Name field */}
         <motion.div className="mb-5" variants={itemVariants}>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label 
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-300 mb-2"
+          >
             Your Name
           </label>
           <input
-            type="text"
+            id="name"
             name="name"
+            type="text"
             value={formData.name}
             onChange={handleChange}
+            placeholder="John Doe"
             className={`w-full px-4 py-2.5 rounded-lg bg-gray-800 border ${
               errors.name ? "border-red-500" : "border-gray-700"
             } text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50`}
-            placeholder="John Doe"
           />
-          {errors.name && (
-            <p className="text-red-400 text-xs mt-1">{errors.name}</p>
-          )}
+          {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
         </motion.div>
 
+        {/* Email field */}
         <motion.div className="mb-5" variants={itemVariants}>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label 
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-300 mb-2"
+          >
             Email Address
           </label>
           <input
-            type="email"
+            id="email"
             name="email"
+            type="email"
             value={formData.email}
             onChange={handleChange}
+            placeholder="john@example.com"
             className={`w-full px-4 py-2.5 rounded-lg bg-gray-800 border ${
               errors.email ? "border-red-500" : "border-gray-700"
             } text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50`}
-            placeholder="john@example.com"
           />
-          {errors.email && (
-            <p className="text-red-400 text-xs mt-1">{errors.email}</p>
-          )}
+          {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
         </motion.div>
 
+        {/* Message field */}
         <motion.div className="mb-6" variants={itemVariants}>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label 
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-300 mb-2"
+          >
             Your Message
           </label>
           <textarea
+            id="message"
             name="message"
+            rows="4"
             value={formData.message}
             onChange={handleChange}
-            rows="2"
+            placeholder="Hello, I’d like to talk about..."
             className={`w-full px-4 py-2.5 rounded-lg bg-gray-800 border ${
               errors.message ? "border-red-500" : "border-gray-700"
             } text-white placeholder-gray-500 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500/50`}
-            placeholder="Hello, I’d like to talk about..."
           />
-          {errors.message && (
-            <p className="text-red-400 text-xs mt-1">{errors.message}</p>
-          )}
+          {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
         </motion.div>
 
+        {/* Submit button */}
         <motion.div variants={itemVariants}>
           <button
             type="submit"
@@ -182,40 +193,36 @@ const Contact = () => {
             }`}
           >
             {isLoading ? (
-              <>
-                <svg
-                  className="animate-spin h-5 w-5 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  />
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.37 0 0 5.37 0 12h4zm2 5.29A7.96 7.96 0 014 12H0c0 3.04 1.14 5.82 3 7.94l3-2.65z"
-                  />
-                </svg>
-                Sending...
-              </>
+              <svg
+                className="animate-spin h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.37 0 0 5.37 0 12h4zm2 5.29A7.96 7.96 0 014 12H0c0 3.04 1.14 5.82 3 7.94l3-2.65z"
+                />
+              </svg>
             ) : isSubmitted ? (
-              <>
-                <FiCheckCircle className="text-lg" />
-                Message Sent!
-              </>
+              <FiCheckCircle className="text-lg" />
             ) : (
-              <>
-                <FiSend className="text-lg" />
-                Send Message
-              </>
+              <FiSend className="text-lg" />
             )}
+            {isLoading
+              ? "Sending..."
+              : isSubmitted
+              ? "Message Sent!"
+              : "Send Message"}
           </button>
         </motion.div>
       </motion.form>
