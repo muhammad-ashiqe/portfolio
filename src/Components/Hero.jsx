@@ -121,8 +121,8 @@ const Hero = () => {
           variants={itemVariants}
         >
           {[
-            { icon: "github", url: "#" },
-            { icon: "linkedin", url: "#" },
+            { icon: "github", url: "https://github.com/muhammad-ashiqe" },
+            { icon: "linkedin", url: "https://www.linkedin.com/in/muhammad-ashiqe"}
           ].map((social, i) => (
             <a
               key={i}
@@ -147,8 +147,8 @@ const Hero = () => {
         {/* Phone CTA */}
         <motion.div variants={itemVariants}>
           <a
-            href="tel:+1234567890"
-            className="inline-flex items-center text-blue-400 hover:text-white font-medium transition-colors duration-300"
+            href="tel:+91 9562647893"
+            className="inline-flex items-center px-5 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-300"
           >
             <svg className="w-5 h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />

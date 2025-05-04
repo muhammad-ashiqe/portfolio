@@ -38,6 +38,17 @@ const ProjectCard = ({ image, title, description, tools, github, demo }) => {
             </motion.a>
           )}
           
+          {!demo  ?(
+            <motion.a
+              className="flex items-center gap-2 px-4 py-2 bg-green-600/90 text-white text-sm border border-green-400 rounded-lg hover:bg-green-500 transition-all duration-300 cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaExternalLinkAlt className="text-lg" />
+              <span>In Progress</span>
+            </motion.a>
+          ):""}
+          
           {demo && (
             <motion.a
               href={demo}
@@ -57,7 +68,7 @@ const ProjectCard = ({ image, title, description, tools, github, demo }) => {
       {/* Project Content */}
       <div className="p-5 flex flex-col">
         {/* Project Title */}
-        <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+        <h3 className="text-xl font-bold text-blue-400 mb-2">{title}</h3>
 
         {/* Description with Custom Scrollbar */}
         <div className="text-sm text-gray-300 mb-4 h-20 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">

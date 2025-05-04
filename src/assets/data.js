@@ -146,12 +146,22 @@ const paymentGateways = [
 
 export const projects = [
   {
+    title: "TechTribe - Social media platform",
+    image:
+      "https://images.theconversation.com/files/543273/original/file-20230817-40322-o38kim.jpg?ixlib=rb-4.1.0&rect=888%2C630%2C7698%2C3849&q=45&auto=format&w=668&h=324&fit=crop",
+    description:
+      "TechTribe is a social media platform designed to connect tech professionals across diverse industries. Built with the MERN stack (MongoDB, Express.js, React, Node.js), it enables users to share posts, engage with others' content, and foster meaningful interactions within the tech community.",
+    tools: ["MERN Stack", "contextApi","tailwind css"],
+    github: "https://github.com/muhammad-ashiqe/TechTribe",
+    demo: "",
+  },
+  {
     title: "Fragrencia - E-commerce Store",
     image:
       "https://png.pngtree.com/thumb_back/fh260/background/20230328/pngtree-perfume-powder-purple-background-image_2120137.jpg",
     description:
-      "An online perfume store with product filtering, cart management, and a seamless checkout experience. Admin panel for managing inventory.",
-    tools: ["MERN Stack", "Redux", "Cloudinary","Razorpay"],
+      "An online perfume store offering a curated selection of fragrances with advanced product filtering, intuitive cart management, and a seamless checkout experience. Includes a robust admin panel for inventory management. Built using the MERN stack, integrated with Cloudinary for image handling and Razorpay for secure payments.",
+    tools: ["MERN Stack", "Cloudinary","Razorpay"],
     github: "https://github.com/muhammad-ashiqe/Fragrencia",
     demo: "https://fragrencia-frontend.vercel.app/",
   },
@@ -160,27 +170,18 @@ export const projects = [
     image:
       "https://www.gloriafood.com/wp-content/uploads/2021/03/How_to_Improve_Your_Food_Delivery_Service_in_2022_-_fb.png",
     description:
-      "QuickBite is a food delivery application with real-time order tracking and a seamless user interface. Features include a cart system and secure checkout.",
+      "QuickBite is a modern food delivery application featuring  order tracking, a smooth and responsive user interface, an intuitive cart system, and secure checkout. Built with the MERN stack, styled using Tailwind CSS, and integrated with Stripe for reliable payment processing.",
     tools: ["MERN",  "Stripe", "Tailwind css"],
     github: "https://github.com/muhammad-ashiqe/Quick-Bite",
     demo: "https://quick-bite-frontend-m5gq.onrender.com/",
   },
-  {
-    title: "CoinWatch - Crypto Tracker",
-    image:
-      "https://png.pngtree.com/thumb_back/fh260/background/20230704/pngtree-3d-render-of-crypto-currency-and-nft-composition-image_3828737.jpg",
-    description:
-      "A real-time cryptocurrency tracking application that fetches data from CoinGecko API. Users can search for coins, view historical data, and check live price changes.",
-    tools: ["React", "Tailwind CSS", "CoinGecko API", "Chart.js"],
-    github: "https://github.com/muhammad-ashiqe/CoinWatch",
-    demo: "https://coin-watch-nine.vercel.app/",
-  },
+  
   {
     title: "ConnectU - Realtime chat ",
     image:
       "https://plus.unsplash.com/premium_photo-1720032304972-1f1142e73253?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhdCUyMGFwcHxlbnwwfHwwfHx8MA%3D%3D",
     description:
-      "ConnectU is a real-time chat application built with the MERN stack, styled using Tailwind CSS, and powered by Socket.IO for seamless live communication. ",
+      "ConnectU is a real-time chat application enabling seamless live communication between users. Built with the MERN stack, styled with Tailwind CSS, and powered by Socket.IO for instant messaging and responsive interactions.",
     tools: ["MERN", "Tailwind CSS", "Socket.IO"],
     github: "https://github.com/muhammad-ashiqe/ConnectU",
     demo: "https://connect-u-ruddy.vercel.app/",
@@ -190,42 +191,105 @@ export const projects = [
     image:
       "https://img.freepik.com/premium-photo/flying-popcorn-3d-glasses-film-reel-clapboard-yellow-background-cinema-movie-concept-3d_989822-1302.jpg?semt=ais_hybrid&w=740",
     description:
-      "movie map is a platform users can search movies with name and find out the details of the movies,all the latest and old movies will be available, responsive design to maintain user experience in all the device",
+      "MovieMap is a movie discovery platform where users can search for films by name and view detailed information on both the latest and classic titles. Built with a responsive design to ensure a smooth user experience across all devices. Developed using React, styled with Tailwind CSS, and powered by the TMDB API for accurate movie data.",
     tools: ["React", "Tailwind CSS", "TMDB api"],
     github: "https://github.com/muhammad-ashiqe/MovieMap",
     demo: "https://movie-map-rouge.vercel.app/",
+  },{
+    title: "CoinWatch - Crypto Tracker",
+    image:
+      "https://png.pngtree.com/thumb_back/fh260/background/20230704/pngtree-3d-render-of-crypto-currency-and-nft-composition-image_3828737.jpg",
+    description:
+      "A real-time cryptocurrency tracking application that allows users to search for coins, monitor live price changes, and view historical data through interactive charts. Built with React and styled using Tailwind CSS, it leverages the CoinGecko API for accurate market data and Chart.js for dynamic visualizations.",
+    tools: ["React", "Tailwind CSS", "CoinGecko API", "Chart.js"],
+    github: "https://github.com/muhammad-ashiqe/CoinWatch",
+    demo: "https://coin-watch-nine.vercel.app/",
   },
   {
     title: "Media player - track videos",
     image:
       "https://img.freepik.com/free-vector/clean-video-player-template-with-simple-buttons_1017-27217.jpg",
     description:
-      "Media player users can add track their favorite youtube videos",
+      "A media player application that allows users to add and track their favorite YouTube videos. Built with React and styled using Bootstrap, it uses a JSON Web Server for managing and storing user data.",
     tools: ["React", "Bootstrap", "JsonWebserver"],
     github: "https://github.com/muhammad-ashiqe/Media-Player",
     demo: "https://media-player-frontend.onrender.com/",
   },
   {
-    title: "test player - track videos",
+    title: "Random Quote Generator",
     image:
-      "https://img.freepik.com/free-vector/clean-video-player-template-with-simple-buttons_1017-27217.jpg",
+      "https://quotes-generator.com/library/gfx/images/quote-img.jpg",
     description:
-      "Media player users can add track their favorite youtube videos",
-    tools: ["React", "Bootstrap", "JsonWebserver"],
-    github: "https://github.com/muhammad-ashiqe/Media-Player",
-    demo: "https://media-player-frontend.onrender.com/",
-  },
-  
+      "Random Quote Generator is a React-based application that displays inspirational quotes sourced from the DummyJSON Quotes API. It enhances the experience by fetching author images from Unsplash API, offering a visually engaging way to discover motivational content.",
+    tools: ["React", "dummyJson", "Unsplash API"],
+    github: "https://github.com/muhammad-ashiqe/Random_Quote_Generator",
+    demo: "https://random-quote-generator-2025.netlify.app/",
+  }
+  ,
   {
-    title: "test player - track videos",
+    title: "Resturent - Redux Async Thunk",
     image:
-      "https://img.freepik.com/free-vector/clean-video-player-template-with-simple-buttons_1017-27217.jpg",
+      "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
     description:
-      "Media player users can add track their favorite youtube videos",
-    tools: ["React", "Bootstrap", "JsonWebserver"],
-    github: "https://github.com/muhammad-ashiqe/Media-Player",
-    demo: "https://media-player-frontend.onrender.com/",
+      "Restaurant - Redux Async Thunk is a restaurant management application built with React and Redux. It leverages Redux Async Thunk for handling asynchronous actions, enabling smooth operations for fetching menus, processing orders, and managing customer data efficiently.",
+    tools: ["React", "Bootstrap", "ReduxAsyncThunk"],
+    github: "https://github.com/muhammad-ashiqe/Redux-AsyncThunk-project",
+    demo: "https://redux-async-thunk-project.vercel.app/",
+  },
+  {
+    title: "Counter using Redux",
+    image:
+      "https://media.istockphoto.com/id/1225034279/vector/green-plus-and-red-minus-symbols-round-thin-line-vector-signs.jpg?s=612x612&w=0&k=20&c=akji0of2-hiyYiG6RMEau8Ubv7KSJc4_kL3YzY4bBv0=",
+    description:
+      "Counter using Redux is a simple application built with React and Redux to demonstrate state management. It allows users to increment, decrement, and reset a counter value using Redux for efficient state handling.",
+    tools: ["React", "Bootstrap", "Redux"],
+    github: "https://github.com/muhammad-ashiqe/Counter-Redux",
+    demo: "https://counter-redux-two-chi.vercel.app/",
+  }
   
+  ,
+
+  {
+    title: "DropBox clone",
+    image:
+      "https://images.ctfassets.net/lzny33ho1g45/4gdjyG2SF19KQfXbcRBz04/105b83c584c0167893c4b35ed0e67bb1/app-tips-dropbox-00-hero.png",
+    description:
+      "DropBox Clone is a visually appealing website design created using HTML and CSS. The layout mimics the look of the popular Dropbox platform, with a focus on a clean, responsive design for a seamless user experience, without any added functionality.",
+    tools: ["HTML", "CSS","GitHub Pages"],
+    github: "https://github.com/muhammad-ashiqe/DropBox-clone",
+    demo: "https://muhammad-ashiqe.github.io/DropBox-clone/",
+  },
+  {
+    title: "Quiz App",
+    image:
+      "https://canopylab.io/wp-content/uploads/2023/01/Blog-Creating-multiple-choice-quizzes-with-the-CanopyLAB-Quiz-engine.jpg",
+    description:
+      "Quiz App is an interactive quiz application built with React. It allows users to answer multiple-choice questions, view their score at the end, and navigate through questions with a smooth, responsive interface.",
+    tools: ["React", "Custom Css"],
+    github: "https://github.com/muhammad-ashiqe/CognoRise-Infotech/tree/main/quiz%20app",
+    demo: "https://quiz-app-rho-henna-52.vercel.app/", 
+  
+  } ,
+  {
+    title: "Currency Converter",
+    image:
+      "https://fcsapi.com/blog/wp-content/uploads/2019/09/currency-converter-fcsapi.com_-750x410.jpg",
+    description:
+      "Currency Converter is a React-based application that allows users to easily convert currencies in real-time. It fetches exchange rates from external APIs and displays flag images for each currency, providing a visually engaging and user-friendly experience.",
+    tools: ["React", "Currency Api", "Flag Api"],
+    github: "https://github.com/muhammad-ashiqe/CognoRise-Infotech/tree/main/currency/",
+    demo: "https://currency-convertor-red-gamma.vercel.app/", 
+  }
+  ,
+  {
+    title: "QR Code Generator",
+    image:
+      "https://content-management-files.canva.com/cdn-cgi/image/f=auto,q=70/e7cf8333-91b1-481c-9544-3e7aa7d89db4/header_QR-code-generator_2x.png",
+    description:
+      "QR Code Generator is a simple web application built with HTML, CSS, and JavaScript that allows users to generate QR codes for any given text or URL. The app provides a clean, responsive interface for easy input and instant QR code creation.",
+    tools: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/muhammad-ashiqe/Qr-generator",
+    demo: "https://muhammad-ashiqe.github.io/Qr-generator/",
   }
  
 ];
