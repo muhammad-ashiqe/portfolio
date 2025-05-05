@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { GiSpanner } from "react-icons/gi";
 
 const ProjectCard = ({ image, title, description, tools, github, demo }) => {
   return (
@@ -44,7 +45,7 @@ const ProjectCard = ({ image, title, description, tools, github, demo }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <FaExternalLinkAlt className="text-lg" />
+              <GiSpanner className="text-lg" />
               <span>In Progress</span>
             </motion.a>
           ):""}
