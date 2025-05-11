@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { GiSpanner } from "react-icons/gi";
 
 const ProjectCard = ({ image, title, description, tools, github, demo }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
       className="projectcard relative group w-full max-w-xs sm:max-w-sm md:max-w-md bg-gray-800/50 border border-gray-700 text-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:border-blue-400/50"
@@ -12,6 +14,9 @@ const ProjectCard = ({ image, title, description, tools, github, demo }) => {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ scale: 1.03 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={() => setIsHovered(!isHovered)}
     >
       {/* Project Image with Glow Effect */}
       <div className="w-full h-48 relative overflow-hidden">
@@ -24,7 +29,9 @@ const ProjectCard = ({ image, title, description, tools, github, demo }) => {
         />
         
         {/* Hover Overlay with Buttons */}
-        <div className="absolute inset-0 bg-black/70 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
+        <div className={`absolute inset-0 bg-black/70 flex items-center justify-center gap-4 transition-opacity duration-300 backdrop-blur-sm ${
+          isHovered ? 'opacity-100' : 'opacity-0'
+        }`}>
           {github && (
             <motion.a
               href={github}
@@ -33,22 +40,24 @@ const ProjectCard = ({ image, title, description, tools, github, demo }) => {
               className="flex items-center gap-2 px-4 py-2 bg-gray-900/90 text-white text-sm border border-gray-600 rounded-lg hover:bg-blue-600 hover:border-blue-400 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onTouchStart={(e) => e.stopPropagation()}
             >
               <FaGithub className="text-lg" />
               <span>View Code</span>
             </motion.a>
           )}
           
-          {!demo  ?(
-            <motion.a
-              className="flex items-center gap-2 px-4 py-2 bg-green-600/90 text-white text-sm border border-green-400 rounded-lg hover:bg-green-500 transition-all duration-300 cursor-pointer"
+          {!demo ? (
+            <motion.div
+              className="flex items-center gap-2 px-4 py-2 bg-green-600/90 text-white text-sm border border-green-400 rounded-lg cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onTouchStart={(e) => e.stopPropagation()}
             >
               <GiSpanner className="text-lg" />
               <span>In Progress</span>
-            </motion.a>
-          ):""}
+            </motion.div>
+          ) : ""}
           
           {demo && (
             <motion.a
@@ -58,6 +67,7 @@ const ProjectCard = ({ image, title, description, tools, github, demo }) => {
               className="flex items-center gap-2 px-4 py-2 bg-blue-600/90 text-white text-sm border border-blue-400 rounded-lg hover:bg-blue-500 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onTouchStart={(e) => e.stopPropagation()}
             >
               <FaExternalLinkAlt className="text-lg" />
               <span>Live Demo</span>
