@@ -148,12 +148,12 @@ export const projects = [
   {
     title: "TechTribe - Social media platform",
     image:
-      "https://images.theconversation.com/files/543273/original/file-20230817-40322-o38kim.jpg?ixlib=rb-4.1.0&rect=888%2C630%2C7698%2C3849&q=45&auto=format&w=668&h=324&fit=crop",
+      "https://www.socialpilot.co/wp-content/uploads/2025/02/Ways-to-Go-Viral-on-Social-Media.webp",
     description:
       "TechTribe is a social media platform designed to connect tech professionals across diverse industries. Built with the MERN stack (MongoDB, Express.js, React, Node.js), it enables users to share posts, engage with others' content, and foster meaningful interactions within the tech community.",
-    tools: ["MERN Stack", "contextApi","tailwind css"],
+    tools: ["MERN Stack","tailwind css","nodemailer"],
     github: "https://github.com/muhammad-ashiqe/TechTribe",
-    demo: "",
+    demo: "https://techtribe-frontend.onrender.com/",
   },
   {
     title: "Fragrencia - E-commerce Store",
