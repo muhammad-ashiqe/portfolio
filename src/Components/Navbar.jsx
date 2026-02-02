@@ -45,6 +45,7 @@ const Navbar = () => {
       >
         <ul className="flex justify-between items-center px-3 py-2">
           <NavItem to="/" label="Home" />
+          <NavItem to="experience" label="Experience" />
           <NavItem to="skills" label="Skills" />
           <NavItem to="projects" label="Projects" />
           <NavItem to="contact" label="Contact" />

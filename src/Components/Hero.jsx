@@ -1,8 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
-import heroImg from "../../public/dppp.png"
 import { Link } from "react-router-dom";
-
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,27 +32,7 @@ const Hero = () => {
       initial="hidden"
       animate="visible"
     >
-      {/* Profile Image with perfect centering */}
-      <motion.div
-        className="flex justify-center mb-8 sm:mb-12"
-        variants={itemVariants}
-      >
-        <div className="relative">
-          {/* Glowing border effect */}
-          <div className="absolute inset-0 rounded-full bg-blue-500/10 blur-md -z-10" />
-          
-          {/* Your perfect profile image container */}
-          <div className="w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[280px] md:h-[280px] border-2 border-blue-500/80 rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500">
-            <img
-              className="w-full h-full object-cover  transition-transform duration-500"
-              src={heroImg}
-              alt="Ashiqe - MERN Stack Developer"
-              loading="eager"
-            />
-          </div>
-        </div>
-      </motion.div>
-
+      <div className="h-20"></div>
       {/* Text Content */}
       <motion.div
         className="text-center px-4 max-w-2xl mx-auto"
@@ -91,7 +68,11 @@ const Hero = () => {
             rel="noopener noreferrer"
             className="flex items-center px-5 py-2.5 bg-gray-800/50 border border-gray-700 text-white font-medium rounded-lg hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300"
           >
-            <svg className="w-5 h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <svg
+              className="w-5 h-5 mr-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
               <path
                 fillRule="evenodd"
                 d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
@@ -101,16 +82,19 @@ const Hero = () => {
             View Resume
           </a>
 
-          <Link to={'/contact'}><a
-            
-            className="flex items-center px-5 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-300"
-          >
-            <svg className="w-5 h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-            </svg>
-            Contact Me
-          </a></Link>
+          <Link to={"/contact"}>
+            <a className="flex items-center px-5 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-300">
+              <svg
+                className="w-5 h-5 mr-2"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              Contact Me
+            </a>
+          </Link>
         </motion.div>
       </motion.div>
 
@@ -122,7 +106,10 @@ const Hero = () => {
         >
           {[
             { icon: "github", url: "https://github.com/muhammad-ashiqe" },
-            { icon: "linkedin", url: "https://www.linkedin.com/in/muhammad-ashiqe"}
+            {
+              icon: "linkedin",
+              url: "https://www.linkedin.com/in/muhammad-ashiqe",
+            },
           ].map((social, i) => (
             <a
               key={i}
@@ -150,7 +137,11 @@ const Hero = () => {
             href="tel:+91 9562647893"
             className="inline-flex items-center px-5 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-300"
           >
-            <svg className="w-5 h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <svg
+              className="w-5 h-5 mr-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
             </svg>
             Request call

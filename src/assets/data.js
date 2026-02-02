@@ -9,6 +9,12 @@ const programmingLanguages = [
     name: "TypeScript",
     image: "https://cdn-icons-png.flaticon.com/512/5968/5968381.png",
   },
+  {
+    id: 3,
+    name: "Dart",
+    image:
+      "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/dart-programming-language-icon.png",
+  },
 ];
 
 const frontendDevelopment = [
@@ -37,6 +43,12 @@ const frontendDevelopment = [
     name: "Bootstrap",
     image: "https://icon.icepanel.io/Technology/svg/Bootstrap.svg",
   },
+  {
+    id: 8,
+    name: "Flutter",
+    image:
+      "https://cdn.iconscout.com/icon/free/png-256/free-flutter-logo-icon-svg-download-png-1720090.png?f=webp",
+  },
 ];
 
 const backendAndDatabase = [
@@ -52,8 +64,19 @@ const backendAndDatabase = [
   },
   {
     id: 10,
+    name: "Nest.js",
+    image:
+      "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/nest-js-icon.png",
+  },
+  {
+    id: 11,
     name: "MongoDB",
     image: "https://icon.icepanel.io/Technology/svg/MongoDB.svg",
+  },
+  {
+    id: 12,
+    name: "MySql",
+    image: "https://pngimg.com/d/mysql_PNG9.png",
   },
 ];
 
@@ -83,13 +106,24 @@ const librariesAndDevTools = [
     id: 15,
     name: "Redux",
     image:
-      "https://static-00.iconduck.com/assets.00/redux-icon-512x486-1n8k02rk.png",
+      "https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png",
   },
   {
     id: 16,
+    name: "Prisma",
+    image: "https://www.svgrepo.com/show/373776/light-prisma.svg",
+  },
+  {
+    id: 17,
     name: "Firebase",
     image:
       "https://cdn4.iconfinder.com/data/icons/google-i-o-2016/512/google_firebase-2-512.png",
+  },
+  {
+    id: 18,
+    name: "Firebase",
+    image:
+      "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/postman-icon.png",
   },
 ];
 
@@ -108,7 +142,7 @@ const cloudAndDeployment = [
     id: 19,
     name: "Render",
     image:
-      "https://camo.githubusercontent.com/25d25cd0312f9e81b653fbdd33d2b04c49f03dede7fe5c89d4aeabb9a83ec739/68747470733a2f2f63646e2e73616e6974792e696f2f696d616765732f3334656e74386c792f70726f64756374696f6e2f656333376133363630373034653166613262343234366339613031616233346531343531393461642d383234783832342e706e67",
+      "https://images.seeklogo.com/logo-png/53/1/render-logo-png_seeklogo-532232.png",
   },
 ];
 
@@ -151,7 +185,7 @@ export const projects = [
       "https://www.socialpilot.co/wp-content/uploads/2025/02/Ways-to-Go-Viral-on-Social-Media.webp",
     description:
       "TechTribe is a social media platform designed to connect tech professionals across diverse industries. Built with the MERN stack (MongoDB, Express.js, React, Node.js), it enables users to share posts, engage with others' content, and foster meaningful interactions within the tech community.",
-    tools: ["MERN Stack","tailwind css","nodemailer"],
+    tools: ["MERN Stack", "tailwind css", "nodemailer"],
     github: "https://github.com/muhammad-ashiqe/TechTribe",
     demo: "https://techtribe-frontend.onrender.com/",
   },
@@ -161,7 +195,7 @@ export const projects = [
       "https://png.pngtree.com/thumb_back/fh260/background/20230328/pngtree-perfume-powder-purple-background-image_2120137.jpg",
     description:
       "An online perfume store offering a curated selection of fragrances with advanced product filtering, intuitive cart management, and a seamless checkout experience. Includes a robust admin panel for inventory management. Built using the MERN stack, integrated with Cloudinary for image handling and Razorpay for secure payments.",
-    tools: ["MERN Stack", "Cloudinary","Razorpay"],
+    tools: ["MERN Stack", "Cloudinary", "Razorpay"],
     github: "https://github.com/muhammad-ashiqe/Fragrencia",
     demo: "https://fragrencia-frontend.vercel.app/",
   },
@@ -171,11 +205,11 @@ export const projects = [
       "https://www.gloriafood.com/wp-content/uploads/2021/03/How_to_Improve_Your_Food_Delivery_Service_in_2022_-_fb.png",
     description:
       "QuickBite is a modern food delivery application featuring  order tracking, a smooth and responsive user interface, an intuitive cart system, and secure checkout. Built with the MERN stack, styled using Tailwind CSS, and integrated with Stripe for reliable payment processing.",
-    tools: ["MERN",  "Stripe", "Tailwind css"],
+    tools: ["MERN", "Stripe", "Tailwind css"],
     github: "https://github.com/muhammad-ashiqe/Quick-Bite",
     demo: "https://quick-bite-frontend-m5gq.onrender.com/",
   },
-  
+
   {
     title: "ConnectU - Realtime chat ",
     image:
@@ -195,7 +229,8 @@ export const projects = [
     tools: ["React", "Tailwind CSS", "TMDB api"],
     github: "https://github.com/muhammad-ashiqe/MovieMap",
     demo: "https://movie-map-rouge.vercel.app/",
-  },{
+  },
+  {
     title: "CoinWatch - Crypto Tracker",
     image:
       "https://png.pngtree.com/thumb_back/fh260/background/20230704/pngtree-3d-render-of-crypto-currency-and-nft-composition-image_3828737.jpg",
@@ -217,15 +252,13 @@ export const projects = [
   },
   {
     title: "Random Quote Generator",
-    image:
-      "https://quotes-generator.com/library/gfx/images/quote-img.jpg",
+    image: "https://quotes-generator.com/library/gfx/images/quote-img.jpg",
     description:
       "Random Quote Generator is a React-based application that displays inspirational quotes sourced from the DummyJSON Quotes API. It enhances the experience by fetching author images from Unsplash API, offering a visually engaging way to discover motivational content.",
     tools: ["React", "dummyJson", "Unsplash API"],
     github: "https://github.com/muhammad-ashiqe/Random_Quote_Generator",
     demo: "https://random-quote-generator-2025.netlify.app/",
-  }
-  ,
+  },
   {
     title: "Resturent - Redux Async Thunk",
     image:
@@ -245,9 +278,7 @@ export const projects = [
     tools: ["React", "Bootstrap", "Redux"],
     github: "https://github.com/muhammad-ashiqe/Counter-Redux",
     demo: "https://counter-redux-two-chi.vercel.app/",
-  }
-  
-  ,
+  },
 
   {
     title: "DropBox clone",
@@ -255,7 +286,7 @@ export const projects = [
       "https://images.ctfassets.net/lzny33ho1g45/4gdjyG2SF19KQfXbcRBz04/105b83c584c0167893c4b35ed0e67bb1/app-tips-dropbox-00-hero.png",
     description:
       "DropBox Clone is a visually appealing website design created using HTML and CSS. The layout mimics the look of the popular Dropbox platform, with a focus on a clean, responsive design for a seamless user experience, without any added functionality.",
-    tools: ["HTML", "CSS","GitHub Pages"],
+    tools: ["HTML", "CSS", "GitHub Pages"],
     github: "https://github.com/muhammad-ashiqe/DropBox-clone",
     demo: "https://muhammad-ashiqe.github.io/DropBox-clone/",
   },
@@ -266,10 +297,10 @@ export const projects = [
     description:
       "Quiz App is an interactive quiz application built with React. It allows users to answer multiple-choice questions, view their score at the end, and navigate through questions with a smooth, responsive interface.",
     tools: ["React", "Custom Css"],
-    github: "https://github.com/muhammad-ashiqe/CognoRise-Infotech/tree/main/quiz%20app",
-    demo: "https://quiz-app-rho-henna-52.vercel.app/", 
-  
-  } ,
+    github:
+      "https://github.com/muhammad-ashiqe/CognoRise-Infotech/tree/main/quiz%20app",
+    demo: "https://quiz-app-rho-henna-52.vercel.app/",
+  },
   {
     title: "Currency Converter",
     image:
@@ -277,10 +308,10 @@ export const projects = [
     description:
       "Currency Converter is a React-based application that allows users to easily convert currencies in real-time. It fetches exchange rates from external APIs and displays flag images for each currency, providing a visually engaging and user-friendly experience.",
     tools: ["React", "Currency Api", "Flag Api"],
-    github: "https://github.com/muhammad-ashiqe/CognoRise-Infotech/tree/main/currency/",
-    demo: "https://currency-convertor-red-gamma.vercel.app/", 
-  }
-  ,
+    github:
+      "https://github.com/muhammad-ashiqe/CognoRise-Infotech/tree/main/currency/",
+    demo: "https://currency-convertor-red-gamma.vercel.app/",
+  },
   {
     title: "QR Code Generator",
     image:
@@ -290,8 +321,7 @@ export const projects = [
     tools: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/muhammad-ashiqe/Qr-generator",
     demo: "https://muhammad-ashiqe.github.io/Qr-generator/",
-  }
- 
+  },
 ];
 
 export {
