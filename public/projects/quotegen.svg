@@ -1,0 +1,11 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  <!-- Quote marks -->
+  <text x="80" y="120" font-family="serif" font-size="80" fill="#06B6D4" opacity="0.5">"</text>
+  <text x="280" y="200" font-family="serif" font-size="80" fill="#06B6D4" opacity="0.5">"</text>
+  <!-- Quote lines -->
+  <line x1="140" y1="120" x2="260" y2="120" stroke="#06B6D4" stroke-width="2" opacity="0.4"/>
+  <line x1="140" y1="150" x2="240" y2="150" stroke="#06B6D4" stroke-width="2" opacity="0.3"/>
+  <line x1="140" y1="180" x2="200" y2="180" stroke="#06B6D4" stroke-width="2" opacity="0.2"/>
+  <text x="200" y="260" font-family="monospace" font-size="14" fill="#06B6D4" text-anchor="middle" opacity="0.7">QUOTE_GENERATOR</text>
+</svg>

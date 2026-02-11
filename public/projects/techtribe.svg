@@ -1,0 +1,17 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  <!-- Network nodes representing social connections -->
+  <circle cx="80" cy="80" r="20" fill="#3B82F6" opacity="0.3"/>
+  <circle cx="200" cy="60" r="25" fill="#3B82F6" opacity="0.5"/>
+  <circle cx="320" cy="100" r="18" fill="#3B82F6" opacity="0.4"/>
+  <circle cx="140" cy="200" r="22" fill="#3B82F6" opacity="0.35"/>
+  <circle cx="280" cy="220" r="20" fill="#3B82F6" opacity="0.45"/>
+  <!-- Connection lines -->
+  <line x1="80" y1="80" x2="200" y2="60" stroke="#3B82F6" stroke-width="1" opacity="0.3"/>
+  <line x1="200" y1="60" x2="320" y2="100" stroke="#3B82F6" stroke-width="1" opacity="0.3"/>
+  <line x1="80" y1="80" x2="140" y2="200" stroke="#3B82F6" stroke-width="1" opacity="0.3"/>
+  <line x1="320" y1="100" x2="280" y2="220" stroke="#3B82F6" stroke-width="1" opacity="0.3"/>
+  <line x1="140" y1="200" x2="280" y2="220" stroke="#3B82F6" stroke-width="1" opacity="0.3"/>
+  <!-- Tech text -->
+  <text x="200" y="260" font-family="monospace" font-size="14" fill="#3B82F6" text-anchor="middle" opacity="0.7">SOCIAL_NETWORK</text>
+</svg>

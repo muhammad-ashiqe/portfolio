@@ -9,6 +9,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import { SplashQuote } from "./Components/SplashQuote";
 import Experience from "./pages/Experience";
+import Layout from "./components/overhaul/Layout";
 
 function AppContent() {
   const { showSplash, isVisible, setShowSplash, setIsVisible } = useSplash();
@@ -27,19 +28,21 @@ function AppContent() {
     <div className="app">
       {showSplash && <SplashQuote isVisible={isVisible} />}
 
-      <div
-        className={`transition-opacity duration-300 ${showSplash ? "opacity-0" : "opacity-100"}`}
-      >
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Hero />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Footer />
-      </div>
+      <Layout>
+        <div
+          className={`transition-opacity duration-300 ${showSplash ? "opacity-0" : "opacity-100"}`}
+        >
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Layout>
     </div>
   );
 }

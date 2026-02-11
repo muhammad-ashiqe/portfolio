@@ -1,58 +1,70 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const quotes = [
-  { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-  { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
-  { text: "In the middle of every difficulty lies opportunity.", author: "Albert Einstein" },
-  { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
-  { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
-  { text: "You miss 100% of the shots you don’t take.", author: "Wayne Gretzky" },
-  { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
-  { text: "I never dreamed about success. I worked for it.", author: "Estée Lauder" },
-  { text: "If you can dream it, you can do it.", author: "Walt Disney" },
-  { text: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb" }
+const bootSequence = [
+  "INSTALLING_DEPENDENCIES...",
+  "COMPILING_SOURCE_CODE...",
+  "BUNDLING_ASSETS...",
+  "RUNNING_BUILD_SCRIPTS...",
+  "BUILD_SUCCESSFUL: PORTFOLIO_READY"
 ];
 
-const quoteVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
-  }
-};
+const BootLine = ({ text, index }) => (
+  <motion.div
+    initial={{ opacity: 0, x: -20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: index * 0.2, duration: 0.3 }}
+    className="font-mono text-xs md:text-sm text-blue-500 mb-1"
+  >
+    <span className="text-gray-500 mr-2">[{new Date().toLocaleTimeString()}]</span>
+    <span>{text}</span>
+  </motion.div>
+);
 
 export function SplashQuote({ isVisible }) {
-  const [currentQuote, setCurrentQuote] = useState({ text: '', author: '' });
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    setCurrentQuote(quotes[Math.floor(Math.random() * quotes.length)]);
+    const timer = setInterval(() => {
+        setProgress(prev => Math.min(prev + Math.random() * 15, 100));
+    }, 150);
+    return () => clearInterval(timer);
   }, []);
 
   return (
-    <div
-      className={`
-        fixed inset-0
-        bg-gray-900/90 backdrop-blur-sm
-        flex items-center justify-center
-        transition-opacity duration-500 z-50
-        ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}
-      `}
-    >
-      <motion.div
-        className="px-4 text-center"
-        initial="hidden"
-        animate={isVisible ? 'visible' : 'hidden'}
-        variants={quoteVariants}
-      >
-        <h1 className="text-sm md:text-xl lg:text-xl font-medium text-white leading-tight">
-          “{currentQuote.text}”
-        </h1>
-        <p className="mt-4 text-sm md:text-base italic text-blue-200">
-          — {currentQuote.author}
-        </p>
-      </motion.div>
-    </div>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+            className="fixed inset-0 z-[60] bg-black flex items-center justify-center overflow-hidden"
+            exit={{ y: "-100%", transition: { duration: 0.8, ease: "easeInOut" } }}
+        >
+            <div className="w-full max-w-lg px-6">
+                
+                {/* Boot Log */}
+                <div className="mb-8 font-mono text-left border-l-2 border-blue-500 pl-4 h-32 overflow-hidden flex flex-col justify-end">
+                    {bootSequence.map((line, index) => (
+                        <BootLine key={index} text={line} index={index} />
+                    ))}
+                </div>
+
+                {/* Progress Bar */}
+                <div className="relative w-full h-1 bg-gray-900 overflow-hidden mb-2">
+                    <motion.div 
+                        className="h-full bg-blue-500"
+                        style={{ width: `${progress}%` }}
+                    />
+                </div>
+                
+                <div className="flex justify-between text-xs font-mono text-gray-500">
+                    <span>SYSTEM_BOOT</span>
+                    <span>{Math.round(progress)}%</span>
+                </div>
+
+                {/* Glitch Overlay */}
+                <div className="absolute inset-0 pointer-events-none opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+            </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

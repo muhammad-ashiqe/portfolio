@@ -75,157 +75,101 @@ const Contact = () => {
   return (
     <motion.section
       id="contact"
-      className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-12 relative"
+      className="relative min-h-screen px-4 sm:px-12 py-20 flex flex-col justify-center"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-      {/* Glowy background */}
-      <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-        <div className="absolute left-1/3 top-1/4 w-60 h-60 bg-blue-500 rounded-full blur-[80px] opacity-10" />
-        <div className="absolute right-1/4 bottom-1/4 w-60 h-60 bg-purple-500 rounded-full blur-[80px] opacity-10" />
-      </div>
+        {/* Terminal Window */}
+        <div className="max-w-4xl mx-auto w-full bg-black/80 backdrop-blur-xl border border-gray-800 rounded-sm relative overflow-hidden">
+            {/* Terminal Header */}
+            <div className="h-8 bg-gray-900 border-b border-gray-800 flex items-center px-4 justify-between">
+                <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500/50" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                </div>
+                <div className="text-gray-500 font-mono text-xs">user@portfolio-terminal:~/contact-form</div>
+            </div>
 
-      {/* Heading */}
-      <motion.div className="text-center mb-10" variants={itemVariants}>
-        <h2 className="text-2xl sm:text-3xl md:text-[2.2rem] font-semibold text-white">
-          Get In <span className="text-blue-400">Touch</span>
-        </h2>
-        <p className="text-sm text-gray-400 max-w-md mx-auto mt-2">
-          Have a project in mind or want to collaborate?
-        </p>
-        <motion.div
-          className="h-[2px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent w-full max-w-xs mx-auto mt-6"
-          variants={{
-            hidden: { scaleX: 0, opacity: 0 },
-            visible: {
-              scaleX: 1,
-              opacity: 1,
-              transition: { duration: 0.8, ease: [0.16,1,0.3,1], delay: 0.3 },
-            },
-          }}
-        />
-      </motion.div>
+            <div className="p-8 md:p-12 relative z-10">
+                <motion.div className="mb-10" variants={itemVariants}>
+                     <div className="font-mono text-blue-500 mb-2">$ init_comm_link</div>
+                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">PING_ME</h2>
+                     <p className="text-gray-400 font-mono text-sm max-w-lg border-l-2 border-gray-700 pl-4">
+                        Inititate handshake protocol. Send a transmission for collaboration, inquiries, or just to say hello.
+                     </p>
+                </motion.div>
 
-      {/* Form */}
-      <motion.form
-        ref={formRef}
-        onSubmit={handleSubmit}
-        className="max-w-xl mx-auto bg-gray-900/50 border border-gray-800 rounded-xl shadow-lg p-6 sm:p-8 backdrop-blur-md"
-        variants={containerVariants}
-      >
-        {/* Name field */}
-        <motion.div className="mb-5" variants={itemVariants}>
-          <label 
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-300 mb-2"
-          >
-            Your Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your Name"
-            className={`w-full px-4 py-2.5 rounded-lg bg-gray-800 border ${
-              errors.name ? "border-red-500" : "border-gray-700"
-            } text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50`}
-          />
-          {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
-        </motion.div>
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <motion.div variants={itemVariants} className="relative group">
+                            <label htmlFor="name" className="block text-xs font-mono text-gray-500 mb-1 group-focus-within:text-blue-400 transition-colors">NAME_INPUT</label>
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                value={formData.name}
+                                onChange={handleChange}
+                                placeholder="ENTER NAME..."
+                                className={`w-full bg-gray-900/50 border-b border-gray-700 px-0 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors font-mono ${errors.name ? 'border-red-500' : ''}`}
+                            />
+                            {errors.name && <span className="absolute right-0 top-8 text-red-500 text-xs font-mono">ERR: REQUIRED</span>}
+                        </motion.div>
 
-        {/* Email field */}
-        <motion.div className="mb-5" variants={itemVariants}>
-          <label 
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-300 mb-2"
-          >
-            Email Address
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="email@example.com"
-            className={`w-full px-4 py-2.5 rounded-lg bg-gray-800 border ${
-              errors.email ? "border-red-500" : "border-gray-700"
-            } text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50`}
-          />
-          {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
-        </motion.div>
+                        <motion.div variants={itemVariants} className="relative group">
+                            <label htmlFor="email" className="block text-xs font-mono text-gray-500 mb-1 group-focus-within:text-blue-400 transition-colors">EMAIL_ADDRESS</label>
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                placeholder="ENTER EMAIL..."
+                                className={`w-full bg-gray-900/50 border-b border-gray-700 px-0 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors font-mono ${errors.email ? 'border-red-500' : ''}`}
+                            />
+                            {errors.email && <span className="absolute right-0 top-8 text-red-500 text-xs font-mono">ERR: INVALID</span>}
+                        </motion.div>
+                    </div>
 
-        {/* Message field */}
-        <motion.div className="mb-6" variants={itemVariants}>
-          <label 
-            htmlFor="message"
-            className="block text-sm font-medium text-gray-300 mb-2"
-          >
-            Your Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Hello, I’d like to talk about..."
-            className={`w-full px-4 py-2.5 rounded-lg bg-gray-800 border ${
-              errors.message ? "border-red-500" : "border-gray-700"
-            } text-white placeholder-gray-500 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500/50`}
-          />
-          {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
-        </motion.div>
+                    <motion.div variants={itemVariants} className="relative group">
+                        <label htmlFor="message" className="block text-xs font-mono text-gray-500 mb-1 group-focus-within:text-blue-400 transition-colors">MESSAGE_BODY</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="4"
+                            value={formData.message}
+                            onChange={handleChange}
+                            placeholder="TYPE MESSAGE HERE..."
+                            className={`w-full bg-gray-900/50 border-b border-gray-700 px-0 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors resize-none font-mono ${errors.message ? 'border-red-500' : ''}`}
+                        />
+                        {errors.message && <span className="absolute right-0 top-8 text-red-500 text-xs font-mono">ERR: EMPTY_MSG</span>}
+                    </motion.div>
 
-        {/* Submit button */}
-        <motion.div variants={itemVariants}>
-          <button
-            type="submit"
-            disabled={isLoading || isSubmitted}
-            className={`w-full py-3 px-6 flex items-center justify-center gap-2 text-white font-medium rounded-lg transition-all duration-300 ${
-              isLoading || isSubmitted
-                ? "bg-green-600 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700"
-            }`}
-          >
-            {isLoading ? (
-              <svg
-                className="animate-spin h-5 w-5 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                />
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.37 0 0 5.37 0 12h4zm2 5.29A7.96 7.96 0 014 12H0c0 3.04 1.14 5.82 3 7.94l3-2.65z"
-                />
-              </svg>
-            ) : isSubmitted ? (
-              <FiCheckCircle className="text-lg" />
-            ) : (
-              <FiSend className="text-lg" />
-            )}
-            {isLoading
-              ? "Sending..."
-              : isSubmitted
-              ? "Message Sent!"
-              : "Send Message"}
-          </button>
-        </motion.div>
-      </motion.form>
+                    <motion.div variants={itemVariants} className="pt-6">
+                        <button
+                            type="submit"
+                            disabled={isLoading || isSubmitted}
+                            className={`w-full md:w-auto px-10 py-4 bg-white text-black font-bold font-mono hover:bg-blue-500 hover:text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-4 ${isSubmitted ? 'bg-green-500 text-white' : ''}`}
+                        >
+                            {isLoading ? (
+                                <span className="animate-pulse">TRANSMITTING...</span>
+                            ) : isSubmitted ? (
+                                <><span>TRANSMISSION_COMPLETE</span> <FiCheckCircle /></>
+                            ) : (
+                                <><span>EXECUTE_SEND</span> <FiSend /></>
+                            )}
+                        </button>
+                    </motion.div>
+                </form>
+            </div>
+
+            {/* Decorative Grid Background */}
+            <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" 
+                 style={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+            </div>
+        </div>
     </motion.section>
   );
 };

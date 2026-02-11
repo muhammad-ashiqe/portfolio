@@ -1,0 +1,16 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  <!-- Film reel -->
+  <circle cx="120" cy="150" r="50" fill="none" stroke="#EF4444" stroke-width="2" opacity="0.5"/>
+  <circle cx="120" cy="150" r="30" fill="none" stroke="#EF4444" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="280" cy="150" r="50" fill="none" stroke="#EF4444" stroke-width="2" opacity="0.5"/>
+  <circle cx="280" cy="150" r="30" fill="none" stroke="#EF4444" stroke-width="1.5" opacity="0.4"/>
+  <!-- Film strip -->
+  <rect x="160" y="130" width="80" height="40" fill="none" stroke="#EF4444" stroke-width="2" opacity="0.4"/>
+  <line x1="175" y1="130" x2="175" y2="170" stroke="#EF4444" stroke-width="1" opacity="0.3"/>
+  <line x1="225" y1="130" x2="225" y2="170" stroke="#EF4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Star ratings -->
+  <text x="200" y="220" font-family="monospace" font-size="20" fill="#F59E0B" text-anchor="middle">★ ★ ★ ★ ★</text>
+  <text x="200" y="270" font-family="monospace" font-size="14" fill="#EF4444" text-anchor="middle" opacity="0.7">MOVIE_DATABASE</text>
+</svg>

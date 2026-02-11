@@ -1,0 +1,14 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  <!-- Counter display -->
+  <rect x="120" y="100" width="160" height="80" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.5"/>
+  <text x="200" y="155" font-family="monospace" font-size="48" fill="#3B82F6" text-anchor="middle" opacity="0.7">042</text>
+  <!-- Control buttons -->
+  <circle cx="140" cy="220" r="20" fill="none" stroke="#10B981" stroke-width="2" opacity="0.5"/>
+  <text x="140" y="228" font-family="monospace" font-size="24" fill="#10B981" text-anchor="middle" opacity="0.6">-</text>
+  <circle cx="200" cy="220" r="20" fill="none" stroke="#EF4444" stroke-width="2" opacity="0.5"/>
+  <text x="200" y="228" font-family="monospace" font-size="20" fill="#EF4444" text-anchor="middle" opacity="0.6">↻</text>
+  <circle cx="260" cy="220" r="20" fill="none" stroke="#10B981" stroke-width="2" opacity="0.5"/>
+  <text x="260" y="228" font-family="monospace" font-size="24" fill="#10B981" text-anchor="middle" opacity="0.6">+</text>
+  <text x="200" y="270" font-family="monospace" font-size="14" fill="#3B82F6" text-anchor="middle" opacity="0.7">REDUX_COUNTER</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  <!-- QR Code grid -->
+  <rect x="130" y="80" width="140" height="140" fill="none" stroke="#F59E0B" stroke-width="2" opacity="0.5"/>
+  <!-- QR pattern simulation -->
+  <rect x="145" y="95" width="20" height="20" fill="#F59E0B" opacity="0.4"/>
+  <rect x="185" y="95" width="20" height="20" fill="#F59E0B" opacity="0.4"/>
+  <rect x="225" y="95" width="20" height="20" fill="#F59E0B" opacity="0.4"/>
+  <rect x="145" y="135" width="20" height="20" fill="#F59E0B" opacity="0.4"/>
+  <rect x="205" y="135" width="20" height="20" fill="#F59E0B" opacity="0.4"/>
+  <rect x="165" y="175" width="20" height="20" fill="#F59E0B" opacity="0.4"/>
+  <rect x="225" y="175" width="20" height="20" fill="#F59E0B" opacity="0.4"/>
+  <rect x="185" y="195" width="20" height="20" fill="#F59E0B" opacity="0.4"/>
+  <!-- Corner markers -->
+  <rect x="140" y="90" width="15" height="15" fill="none" stroke="#F59E0B" stroke-width="2" opacity="0.6"/>
+  <rect x="235" y="90" width="15" height="15" fill="none" stroke="#F59E0B" stroke-width="2" opacity="0.6"/>
+  <rect x="140" y="195" width="15" height="15" fill="none" stroke="#F59E0B" stroke-width="2" opacity="0.6"/>
+  <text x="200" y="260" font-family="monospace" font-size="14" fill="#F59E0B" text-anchor="middle" opacity="0.7">QR_GENERATOR</text>
+</svg>

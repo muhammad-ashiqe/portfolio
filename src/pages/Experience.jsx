@@ -1,41 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, ChevronRight, ExternalLink } from "lucide-react";
+import KineticTypography from "../components/overhaul/KineticTypography";
 
-/* -------------------- Animations -------------------- */
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-const cardHoverVariants = {
-  hover: {
-    y: -4,
-    transition: { duration: 0.3 },
-  },
-};
-
-/* -------------------- Data -------------------- */
-
+/* -------------------- Data (Preserved) -------------------- */
 const experiences = [
   {
     company: "Behind The Scene App",
@@ -62,7 +30,7 @@ const experiences = [
     points: [
       "Completed an intensive 8-month internship focused on MERN stack development.",
       "Built full-stack applications using MongoDB, Express, React, and Node.js.",
-      "Worked with REST APIs, authentication, and real-world project workflows.",
+      "Working with REST APIs, authentication, and real-world project workflows.",
       "Strengthened core software engineering concepts and best practices.",
     ],
     tech: ["MongoDB", "Express", "React", "Node.js", "JWT"],
@@ -75,7 +43,7 @@ const education = [
     institution: "University of Mysore",
     duration: "2021 – 2024",
     location: "Mysore, India",
-    // grade: "First Class",
+    // grade: "First Class", // Commented out in original
     courses: [
       "Data Structures",
       "Web Development",
@@ -85,240 +53,94 @@ const education = [
   },
 ];
 
-/* -------------------- Component -------------------- */
-
 const Experience = () => {
   return (
     <motion.section
-      className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-12"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
+      className="relative min-h-screen px-4 sm:px-12 py-20"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
     >
-      {/* ---------- Header ---------- */}
-      <motion.div className="text-center mb-10" variants={itemVariants}>
-        <h2 className="text-2xl sm:text-3xl md:text-[2.2rem] font-semibold text-white">
-          My <span className="text-blue-400">Experience</span>
-        </h2>
-        <p className="text-sm text-gray-400 max-w-md mx-auto mt-2">
-          Professional journey and educational background
-        </p>
-        <motion.div
-          className="h-[2px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent w-full max-w-xs mx-auto mt-6"
-          variants={{
-            hidden: { scaleX: 0, opacity: 0 },
-            visible: {
-              scaleX: 1,
-              opacity: 1,
-              transition: {
-                duration: 0.8,
-                ease: [0.16, 1, 0.3, 1],
-                delay: 0.3,
-              },
-            },
-          }}
-        />
-      </motion.div>
+       {/* Header */}
+       <div className="mb-20 relative z-10">
+            <div className="flex items-baseline gap-4">
+                 <span className="text-blue-500 font-mono text-sm tracking-widest">03 // TIMELINE</span>
+                 <div className="h-px flex-grow bg-blue-900/50" />
+            </div>
+            <KineticTypography text="EXP_LOGS" className="text-5xl md:text-7xl mt-2" />
+        </div>
 
-      {/* ---------- Experience Cards ---------- */}
-      <div className="max-w-6xl mx-auto space-y-6">
+      <div className="max-w-4xl mx-auto relative border-l-2 border-dashed border-gray-800 ml-4 md:ml-0 pl-8 md:pl-0">
+        
+        {/* Experience Stream */}
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
-            variants={itemVariants}
-            whileHover="hover"
-            className="group relative"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.2 }}
+            className="mb-16 relative"
           >
-            <motion.div
-              variants={cardHoverVariants}
-              className="p-5 sm:p-6 bg-gray-800/50 border border-gray-700 rounded-xl backdrop-blur-sm shadow-lg hover:border-blue-400/40 transition-all duration-300"
-            >
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                {/* Logo */}
-                <div className="flex-shrink-0 flex items-start">
-                  <div className="w-16 h-16 rounded-lg bg-gray-900/60 border border-gray-700 flex items-center justify-center group-hover:border-blue-400/40 transition p-2">
-                    <img
-                      src={exp.logo}
-                      alt={exp.company}
-                      className="w-10 h-10 object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
+            {/* Timeline Dot */}
+            <div className="absolute -left-[41px] md:-left-[9px] top-0 w-4 h-4 bg-blue-600 rounded-none border border-blue-400 rotate-45 transform origin-center" />
 
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="text-xl font-semibold text-white">
-                          {exp.role}
-                        </h3>
-                        <ChevronRight className="w-4 h-4 text-blue-400" />
-                      </div>
-                      <p className="text-lg text-blue-300 font-medium">
-                        {exp.company}
-                      </p>
-                    </div>
-
-                    {/* Meta Info */}
-                    <div className="flex flex-col gap-1">
-                      <div className="flex items-center gap-2 text-sm text-gray-400">
-                        <Calendar className="w-4 h-4 text-blue-400" />
-                        {exp.duration}
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-400">
-                        <MapPin className="w-4 h-4" />
-                        {exp.location}
-                      </div>
-                      <span className="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded-full border border-blue-500/20 w-fit">
-                        {exp.type}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <ul className="list-disc list-inside space-y-2 text-sm text-gray-300 mb-4">
-                    {exp.points.map((point, i) => (
-                      <li key={i} className="pl-1">
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
-                    {exp.tech.map((tool, i) => (
-                      <span
-                        key={i}
-                        className="text-xs px-3 py-1 rounded-full bg-gray-700/50 text-blue-300 border border-gray-600"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+            <div className="md:ml-12 p-6 bg-gray-900/40 border border-gray-800 backdrop-blur hover:border-blue-500/50 transition-colors group">
+              <div className="flex flex-col md:flex-row justify-between mb-4">
+                 <div>
+                    <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">{exp.role}</h3>
+                    <p className="text-blue-500 font-mono text-sm mt-1">{exp.company}</p>
+                 </div>
+                 <div className="text-right mt-2 md:mt-0">
+                    <p className="text-gray-400 font-mono text-sm">{exp.duration}</p>
+                    <p className="text-gray-500 text-xs">{exp.location}</p>
+                 </div>
               </div>
 
-              {/* Hover Glow */}
-              <div className="absolute inset-0 rounded-xl bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-            </motion.div>
+              <ul className="space-y-2 mb-6 text-gray-300 font-light text-sm">
+                {exp.points.map((point, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-blue-500">▹</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2">
+                {exp.tech.map((tool, i) => (
+                  <span key={i} className="px-2 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-mono uppercase">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
           </motion.div>
         ))}
+
+        {/* Education Segment */}
+         <div className="mt-24 mb-16 relative">
+            <div className="absolute -left-[41px] md:-left-[9px] top-0 w-4 h-4 bg-purple-600 rounded-none border border-purple-400 rotate-45 transform origin-center" />
+            
+            <div className="md:ml-12">
+                 <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-8 border-b border-gray-800 pb-4 inline-block">
+                    ACADEMY_ARCHIVE
+                 </h2>
+
+                 {education.map((edu, index) => (
+                     <div key={index} className="p-6 bg-gray-900/40 border border-purple-900/30">
+                        <h3 className="text-xl font-bold text-white">{edu.degree}</h3>
+                        <p className="text-purple-400 font-mono">{edu.institution}</p>
+                        <p className="text-sm text-gray-500 mt-1">{edu.duration}</p>
+                        
+                        <div className="mt-4 flex flex-wrap gap-2">
+                            {edu.courses.map((c, i) => (
+                                <span key={i} className="text-xs text-gray-400 border border-gray-700 px-2 py-1 rounded-sm">{c}</span>
+                            ))}
+                        </div>
+                     </div>
+                 ))}
+            </div>
+         </div>
+
       </div>
-
-      {/* ---------- Education Section ---------- */}
-      <motion.div
-        className="max-w-6xl mx-auto mt-12"
-        variants={containerVariants}
-      >
-        <motion.div variants={itemVariants} className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-white mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-              Education
-            </span>{" "}
-            & Background
-          </h3>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Formal education that laid the foundation for my technical career
-          </p>
-        </motion.div>
-
-        {education.map((edu, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            whileHover="hover"
-            className="group relative"
-          >
-            <motion.div
-              variants={cardHoverVariants}
-              className="p-5 sm:p-6 bg-gray-800/40 border border-gray-700 rounded-xl backdrop-blur-sm shadow-lg hover:border-blue-400/40 transition-all duration-300"
-            >
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                {/* Icon */}
-                <div className="flex-shrink-0 flex items-start">
-                  <div className="w-16 h-16 rounded-lg bg-gray-900/60 border border-gray-700 flex items-center justify-center group-hover:border-blue-400/40 transition p-2">
-                    <span className="text-2xl">
-                      <img
-                        src="https://www.uni-mysore.in/assets/images/emblem.png"
-                        alt=""
-                      />
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
-                    <div>
-                      <h4 className="text-xl font-semibold text-white mb-1">
-                        {edu.degree}
-                      </h4>
-                      <p className="text-lg text-blue-300 font-medium">
-                        {edu.institution}
-                      </p>
-                    </div>
-
-                    {/* Meta Info */}
-                    <div className="flex flex-col gap-1">
-                      <div className="flex items-center gap-2 text-sm text-gray-400">
-                        <Calendar className="w-4 h-4 text-blue-400" />
-                        {edu.duration}
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-400">
-                        <MapPin className="w-4 h-4" />
-                        {edu.location}
-                      </div>
-                      <span className="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded-full border border-green-500/20 w-fit">
-                        {edu.grade}
-                      </span>
-                    </div>
-                  </div>
-
-                  <p className="text-sm text-gray-300 mb-4">
-                    Studied computer science fundamentals including programming,
-                    databases, web development, and software engineering
-                    principles.
-                  </p>
-
-                  {/* Courses */}
-                  <div className="flex flex-wrap gap-2">
-                    {edu.courses.map((course, i) => (
-                      <span
-                        key={i}
-                        className="text-xs px-3 py-1 rounded-full bg-gray-700/50 text-blue-300 border border-gray-600"
-                      >
-                        {course}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Hover Glow */}
-              <div className="absolute inset-0 rounded-xl bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-            </motion.div>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* ---------- CTA Section ---------- */}
-      <motion.div
-        className="text-center mt-12 pt-8 border-t border-gray-800/50 max-w-6xl mx-auto"
-        variants={containerVariants}
-      >
-        <motion.div variants={itemVariants}>
-          <p className="text-gray-400 mb-6">Interested in working together?</p>
-          <a
-            href="/resume.pdf"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-800/50 border border-gray-700 text-white font-medium rounded-lg hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300 group"
-          >
-            View Full Resume
-            <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </motion.div>
-      </motion.div>
     </motion.section>
   );
 };

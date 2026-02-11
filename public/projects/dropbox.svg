@@ -1,0 +1,12 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  <!-- Cloud storage icon -->
+  <ellipse cx="200" cy="140" rx="60" ry="40" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.5"/>
+  <ellipse cx="160" cy="120" rx="40" ry="30" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.4"/>
+  <ellipse cx="240" cy="120" rx="40" ry="30" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.4"/>
+  <!-- File icons -->
+  <rect x="170" y="160" width="20" height="25" fill="none" stroke="#06B6D4" stroke-width="1.5" opacity="0.5"/>
+  <rect x="200" y="160" width="20" height="25" fill="none" stroke="#06B6D4" stroke-width="1.5" opacity="0.5"/>
+  <rect x="230" y="160" width="20" height="25" fill="none" stroke="#06B6D4" stroke-width="1.5" opacity="0.5"/>
+  <text x="200" y="260" font-family="monospace" font-size="14" fill="#3B82F6" text-anchor="middle" opacity="0.7">CLOUD_STORAGE</text>
+</svg>
