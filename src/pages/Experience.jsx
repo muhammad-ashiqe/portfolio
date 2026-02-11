@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, ChevronRight, ExternalLink } from "lucide-react";
-import KineticTypography from "../components/overhaul/KineticTypography";
+import KineticTypography from "../Components/overhaul/KineticTypography";
 
 /* -------------------- Data (Preserved) -------------------- */
 const experiences = [

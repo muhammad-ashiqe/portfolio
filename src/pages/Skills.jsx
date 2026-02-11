@@ -9,7 +9,7 @@ import {
   paymentGateways,
   programmingLanguages,
 } from "../assets/data";
-import KineticTypography from "../components/overhaul/KineticTypography";
+import KineticTypography from "../Components/overhaul/KineticTypography";
 
 /* Reusing the SkillSection logic but with new styling */
 const CyberSkillSection = ({ title, skills, accentColor }) => (

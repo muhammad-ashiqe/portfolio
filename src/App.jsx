@@ -9,7 +9,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import { SplashQuote } from "./Components/SplashQuote";
 import Experience from "./pages/Experience";
-import Layout from "./components/overhaul/Layout";
+import Layout from "./Components/overhaul/Layout";
 
 function AppContent() {
   const { showSplash, isVisible, setShowSplash, setIsVisible } = useSplash();

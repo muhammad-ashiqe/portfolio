@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import KineticTypography from "../components/overhaul/KineticTypography";
+import KineticTypography from "../Components/overhaul/KineticTypography";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -107,7 +107,7 @@ const Hero = () => {
               className="group flex items-center gap-2 px-4 py-2 bg-transparent border border-gray-700 hover:border-blue-500 transition-all duration-300"
           >
              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-             <span className="text-gray-400 font-mono text-xs tracking-widest group-hover:text-blue-400">INIT_VOICE_UPLINK</span>
+             <span className="text-gray-400 font-mono text-xs tracking-widest group-hover:text-blue-400">REQUEST_A_CALLBACK</span>
           </a>
       </motion.div>
 

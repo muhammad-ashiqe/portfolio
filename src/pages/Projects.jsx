@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "react-feather";
 import ProjectCard from "../Components/ProjectCard";
 import { projects } from "../assets/data";
-import KineticTypography from "../components/overhaul/KineticTypography";
+import KineticTypography from "../Components/overhaul/KineticTypography";
 
 const Projects = () => {
   const [currentPage, setCurrentPage] = useState(1);
