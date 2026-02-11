@@ -61,7 +61,9 @@ const Navbar = () => {
             </div>
             <div className="hidden md:block">
                 <div className="text-white text-xs font-mono tracking-widest">ASHIQE_SYSTEMS</div>
-                <div className="text-gray-600 text-[10px] tracking-tight">STATUS: ONLINE</div>
+                <div className="text-gray-600 text-[10px] tracking-tight">
+                    STATUS: <span className="text-green-500">ONLINE</span>
+                </div>
             </div>
         </div>
 
