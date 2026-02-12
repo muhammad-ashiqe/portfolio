@@ -39,22 +39,30 @@ const Hero = () => {
 
       {/* Main Headline */}
       <div className="mb-8 z-10">
-        <motion.p 
-            variants={itemVariants} 
-            className="text-blue-400 font-mono mb-4 tracking-widest text-sm md:text-base uppercase"
+        <motion.p
+          variants={itemVariants}
+          className="text-blue-400 font-mono mb-4 tracking-widest text-sm md:text-base uppercase"
         >
-            // System Online
+          // System Online
         </motion.p>
-        
-        <KineticTypography text="ASHIQE" className="mb-[-1rem] md:mb-[-2rem] z-20 relative mix-blend-difference" />
+
+        <KineticTypography
+          text="ASHIQE"
+          className="mb-[-1rem] md:mb-[-2rem] z-20 relative mix-blend-difference"
+        />
         <KineticTypography text="DEV_" className="text-gray-500/50" />
       </div>
 
       {/* Description */}
-      <motion.div variants={itemVariants} className="max-w-2xl backdrop-blur-sm bg-black/20 p-6 rounded-lg border-l-4 border-blue-500">
+      <motion.div
+        variants={itemVariants}
+        className="max-w-2xl backdrop-blur-sm bg-black/20 p-6 rounded-lg border-l-4 border-blue-500"
+      >
         <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-light">
-          Fullstack Developer crafting <span className="text-white font-bold">future-ready</span> web applications.
-          Specializing in <span className="text-blue-300">JavaScript</span>, <span className="text-cyan-300">React</span>, <span className="text-emerald-300">Node.js</span>, and <span className="text-purple-300">MongoDB</span>.
+          Software Engineer building{" "}
+          <span className="text-white font-bold">scalable</span> mobile & web
+          apps with <span className="text-blue-300">clean architecture</span>{" "}
+          and <span className="text-cyan-300">solid system design</span>.
         </p>
       </motion.div>
 
@@ -69,10 +77,10 @@ const Hero = () => {
           rel="noopener noreferrer"
           className="group relative px-8 py-3 bg-transparent overflow-hidden rounded-none border border-white/20 hover:border-blue-500 transition-colors duration-300"
         >
-            <div className="absolute inset-0 w-0 bg-blue-600 transition-all duration-[250ms] ease-out group-hover:w-full opacity-10" />
-            <span className="relative text-white font-mono tracking-wider group-hover:text-blue-300 flex items-center gap-2">
-                VIEW_RESUME <span className="text-xs">↗</span>
-            </span>
+          <div className="absolute inset-0 w-0 bg-blue-600 transition-all duration-[250ms] ease-out group-hover:w-full opacity-10" />
+          <span className="relative text-white font-mono tracking-wider group-hover:text-blue-300 flex items-center gap-2">
+            VIEW_RESUME <span className="text-xs">↗</span>
+          </span>
         </a>
 
         <Link to="/contact">
@@ -83,34 +91,38 @@ const Hero = () => {
       </motion.div>
 
       {/* Social & Meta */}
-      <motion.div 
-        className="flex items-center gap-8 mt-16 md:absolute md:bottom-12 md:right-12" 
+      <motion.div
+        className="flex items-center gap-8 mt-16 md:absolute md:bottom-12 md:right-12"
         variants={itemVariants}
       >
-         {[
-            { icon: "github", url: "https://github.com/muhammad-ashiqe" },
-            { icon: "linkedin", url: "https://www.linkedin.com/in/muhammad-ashiqe" },
-          ].map((social, i) => (
-            <a
-              key={i}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-white text-2xl transition-transform hover:scale-125 duration-300"
-            >
-              <i className={`fa-brands fa-${social.icon}`} />
-            </a>
-          ))}
-          <div className="h-px w-12 bg-gray-700" />
-          <a 
-              href="tel:+919562647893" 
-              className="group flex items-center gap-2 px-4 py-2 bg-transparent border border-gray-700 hover:border-blue-500 transition-all duration-300"
+        {[
+          { icon: "github", url: "https://github.com/muhammad-ashiqe" },
+          {
+            icon: "linkedin",
+            url: "https://www.linkedin.com/in/muhammad-ashiqe",
+          },
+        ].map((social, i) => (
+          <a
+            key={i}
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-white text-2xl transition-transform hover:scale-125 duration-300"
           >
-             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-             <span className="text-gray-400 font-mono text-xs tracking-widest group-hover:text-blue-400">REQUEST_A_CALLBACK</span>
+            <i className={`fa-brands fa-${social.icon}`} />
           </a>
+        ))}
+        <div className="h-px w-12 bg-gray-700" />
+        <a
+          href="tel:+919562647893"
+          className="group flex items-center gap-2 px-4 py-2 bg-transparent border border-gray-700 hover:border-blue-500 transition-all duration-300"
+        >
+          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+          <span className="text-gray-400 font-mono text-xs tracking-widest group-hover:text-blue-400">
+            REQUEST_A_CALLBACK
+          </span>
+        </a>
       </motion.div>
-
     </motion.section>
   );
 };

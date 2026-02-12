@@ -1,7 +1,33 @@
-import { 
-  SiJavascript, SiTypescript, SiDart, SiHtml5, SiCss3, SiReact, SiTailwindcss, SiBootstrap, SiFlutter, 
-  SiNodedotjs, SiExpress, SiNestjs, SiMongodb, SiMysql, SiGit, SiGithub, SiCloudinary, SiJsonwebtokens, 
-  SiRedux, SiPrisma, SiFirebase, SiPostman, SiNetlify, SiVercel, SiRender, SiAdobephotoshop, SiFigma, SiRazorpay, SiStripe
+import {
+  SiJavascript,
+  SiTypescript,
+  SiDart,
+  SiHtml5,
+  SiCss3,
+  SiReact,
+  SiTailwindcss,
+  SiBootstrap,
+  SiFlutter,
+  SiNodedotjs,
+  SiExpress,
+  SiNestjs,
+  SiMongodb,
+  SiMysql,
+  SiGit,
+  SiGithub,
+  SiCloudinary,
+  SiJsonwebtokens,
+  SiRedux,
+  SiPrisma,
+  SiFirebase,
+  SiPostman,
+  SiNetlify,
+  SiVercel,
+  SiRender,
+  SiAdobephotoshop,
+  SiFigma,
+  SiRazorpay,
+  SiStripe,
 } from "react-icons/si";
 import { FaJava, FaFileWord } from "react-icons/fa";
 
@@ -113,81 +139,81 @@ export const projects = [
     github: "https://github.com/muhammad-ashiqe/CoinWatch",
     demo: "https://coin-watch-nine.vercel.app/",
   },
-  {
-    title: "Media player - track videos",
-    image: "/projects/mediaplayer.svg",
-    description:
-      "A media player application that allows users to add and track their favorite YouTube videos. Built with React and styled using Bootstrap, it uses a JSON Web Server for managing and storing user data.",
-    tools: ["React", "Bootstrap", "JsonWebserver"],
-    github: "https://github.com/muhammad-ashiqe/Media-Player",
-    demo: "https://media-player-frontend.onrender.com/",
-  },
-  {
-    title: "Random Quote Generator",
-    image: "/projects/quotegen.svg",
-    description:
-      "Random Quote Generator is a React-based application that displays inspirational quotes sourced from the DummyJSON Quotes API. It enhances the experience by fetching author images from Unsplash API, offering a visually engaging way to discover motivational content.",
-    tools: ["React", "dummyJson", "Unsplash API"],
-    github: "https://github.com/muhammad-ashiqe/Random_Quote_Generator",
-    demo: "https://random-quote-generator-2025.netlify.app/",
-  },
-  {
-    title: "Resturent - Redux Async Thunk",
-    image: "/projects/restaurant.svg",
-    description:
-      "Restaurant - Redux Async Thunk is a restaurant management application built with React and Redux. It leverages Redux Async Thunk for handling asynchronous actions, enabling smooth operations for fetching menus, processing orders, and managing customer data efficiently.",
-    tools: ["React", "Bootstrap", "ReduxAsyncThunk"],
-    github: "https://github.com/muhammad-ashiqe/Redux-AsyncThunk-project",
-    demo: "https://redux-async-thunk-project.vercel.app/",
-  },
-  {
-    title: "Counter using Redux",
-    image: "/projects/counter.svg",
-    description:
-      "Counter using Redux is a simple application built with React and Redux to demonstrate state management. It allows users to increment, decrement, and reset a counter value using Redux for efficient state handling.",
-    tools: ["React", "Bootstrap", "Redux"],
-    github: "https://github.com/muhammad-ashiqe/Counter-Redux",
-    demo: "https://counter-redux-two-chi.vercel.app/",
-  },
+  // {
+  //   title: "Media player - track videos",
+  //   image: "/projects/mediaplayer.svg",
+  //   description:
+  //     "A media player application that allows users to add and track their favorite YouTube videos. Built with React and styled using Bootstrap, it uses a JSON Web Server for managing and storing user data.",
+  //   tools: ["React", "Bootstrap", "JsonWebserver"],
+  //   github: "https://github.com/muhammad-ashiqe/Media-Player",
+  //   demo: "https://media-player-frontend.onrender.com/",
+  // },
+  // {
+  //   title: "Random Quote Generator",
+  //   image: "/projects/quotegen.svg",
+  //   description:
+  //     "Random Quote Generator is a React-based application that displays inspirational quotes sourced from the DummyJSON Quotes API. It enhances the experience by fetching author images from Unsplash API, offering a visually engaging way to discover motivational content.",
+  //   tools: ["React", "dummyJson", "Unsplash API"],
+  //   github: "https://github.com/muhammad-ashiqe/Random_Quote_Generator",
+  //   demo: "https://random-quote-generator-2025.netlify.app/",
+  // },
+  // {
+  //   title: "Resturent - Redux Async Thunk",
+  //   image: "/projects/restaurant.svg",
+  //   description:
+  //     "Restaurant - Redux Async Thunk is a restaurant management application built with React and Redux. It leverages Redux Async Thunk for handling asynchronous actions, enabling smooth operations for fetching menus, processing orders, and managing customer data efficiently.",
+  //   tools: ["React", "Bootstrap", "ReduxAsyncThunk"],
+  //   github: "https://github.com/muhammad-ashiqe/Redux-AsyncThunk-project",
+  //   demo: "https://redux-async-thunk-project.vercel.app/",
+  // },
+  // {
+  //   title: "Counter using Redux",
+  //   image: "/projects/counter.svg",
+  //   description:
+  //     "Counter using Redux is a simple application built with React and Redux to demonstrate state management. It allows users to increment, decrement, and reset a counter value using Redux for efficient state handling.",
+  //   tools: ["React", "Bootstrap", "Redux"],
+  //   github: "https://github.com/muhammad-ashiqe/Counter-Redux",
+  //   demo: "https://counter-redux-two-chi.vercel.app/",
+  // },
 
-  {
-    title: "DropBox clone",
-    image: "/projects/dropbox.svg",
-    description:
-      "DropBox Clone is a visually appealing website design created using HTML and CSS. The layout mimics the look of the popular Dropbox platform, with a focus on a clean, responsive design for a seamless user experience, without any added functionality.",
-    tools: ["HTML", "CSS", "GitHub Pages"],
-    github: "https://github.com/muhammad-ashiqe/DropBox-clone",
-    demo: "https://muhammad-ashiqe.github.io/DropBox-clone/",
-  },
-  {
-    title: "Quiz App",
-    image: "/projects/quiz.svg",
-    description:
-      "Quiz App is an interactive quiz application built with React. It allows users to answer multiple-choice questions, view their score at the end, and navigate through questions with a smooth, responsive interface.",
-    tools: ["React", "Custom Css"],
-    github:
-      "https://github.com/muhammad-ashiqe/CognoRise-Infotech/tree/main/quiz%20app",
-    demo: "https://quiz-app-rho-henna-52.vercel.app/",
-  },
-  {
-    title: "Currency Converter",
-    image: "/projects/currency.svg",
-    description:
-      "Currency Converter is a React-based application that allows users to easily convert currencies in real-time. It fetches exchange rates from external APIs and displays flag images for each currency, providing a visually engaging and user-friendly experience.",
-    tools: ["React", "Currency Api", "Flag Api"],
-    github:
-      "https://github.com/muhammad-ashiqe/CognoRise-Infotech/tree/main/currency/",
-    demo: "https://currency-convertor-red-gamma.vercel.app/",
-  },
-  {
-    title: "QR Code Generator",
-    image: "/projects/qrcode.svg",
-    description:
-      "QR Code Generator is a simple web application built with HTML, CSS, and JavaScript that allows users to generate QR codes for any given text or URL. The app provides a clean, responsive interface for easy input and instant QR code creation.",
-    tools: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/muhammad-ashiqe/Qr-generator",
-    demo: "https://muhammad-ashiqe.github.io/Qr-generator/",
-  },
+  // {
+  //   title: "DropBox clone",
+  //   image: "/projects/dropbox.svg",
+  //   description:
+  //     "DropBox Clone is a visually appealing website design created using HTML and CSS. The layout mimics the look of the popular Dropbox platform, with a focus on a clean, responsive design for a seamless user experience, without any added functionality.",
+  //   tools: ["HTML", "CSS", "GitHub Pages"],
+  //   github: "https://github.com/muhammad-ashiqe/DropBox-clone",
+  //   demo: "https://muhammad-ashiqe.github.io/DropBox-clone/",
+  // },
+  // {
+  //   title: "Quiz App",
+  //   image: "/projects/quiz.svg",
+  //   description:
+  //     "Quiz App is an interactive quiz application built with React. It allows users to answer multiple-choice questions, view their score at the end, and navigate through questions with a smooth, responsive interface.",
+  //   tools: ["React", "Custom Css"],
+  //   github:
+  //     "https://github.com/muhammad-ashiqe/CognoRise-Infotech/tree/main/quiz%20app",
+  //   demo: "https://quiz-app-rho-henna-52.vercel.app/",
+  // },
+  // {
+  //   title: "Currency Converter",
+  //   image: "/projects/currency.svg",
+  //   description:
+  //     "Currency Converter is a React-based application that allows users to easily convert currencies in real-time. It fetches exchange rates from external APIs and displays flag images for each currency, providing a visually engaging and user-friendly experience.",
+  //   tools: ["React", "Currency Api", "Flag Api"],
+  //   github:
+  //     "https://github.com/muhammad-ashiqe/CognoRise-Infotech/tree/main/currency/",
+  //   demo: "https://currency-convertor-red-gamma.vercel.app/",
+  // },
+  // {
+  //   title: "QR Code Generator",
+  //   image: "/projects/qrcode.svg",
+  //   description:
+  //     "QR Code Generator is a simple web application built with HTML, CSS, and JavaScript that allows users to generate QR codes for any given text or URL. The app provides a clean, responsive interface for easy input and instant QR code creation.",
+  //   tools: ["HTML", "CSS", "JavaScript"],
+  //   github: "https://github.com/muhammad-ashiqe/Qr-generator",
+  //   demo: "https://muhammad-ashiqe.github.io/Qr-generator/",
+  // },
 ];
 
 export {
