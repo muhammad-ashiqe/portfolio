@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @import "tailwindcss";
 
 @layer base {
@@ -28,6 +27,25 @@
   background: #fff;
 }
 
+/* Project Card Description Scrollbar - Matrix Theme */
+.project-description::-webkit-scrollbar {
+  width: 4px;
+}
+
+.project-description::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 2px;
+}
+
+.project-description::-webkit-scrollbar-thumb {
+  background: #16a34a; /* green-600 */
+  border-radius: 2px;
+}
+
+.project-description::-webkit-scrollbar-thumb:hover {
+  background: #22c55e; /* green-500 */
+}
+
 /* Selection Color */
 ::selection {
   background-color: #ffffff;
@@ -40,12 +58,22 @@
 }
 
 .perspective-1000 {
-    perspective: 1000px;
+  perspective: 1000px;
 }
 
 /* Typography Overrides */
-h1, h2, h3, h4, buttons, input, label {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif; /* Ensure you have a good sans font */
+h1,
+h2,
+h3,
+h4,
+buttons,
+input,
+label {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif; /* Ensure you have a good sans font */
 }
 
 /* Loading/Splash Animation helpers if needed */
@@ -55,7 +83,12 @@ h1, h2, h3, h4, buttons, input, label {
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
-
