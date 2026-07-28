@@ -6,15 +6,16 @@ import {
   designAndContent,
   frontendDevelopment,
   librariesAndDevTools,
-  paymentGateways,
   programmingLanguages,
 } from "../assets/data";
 import KineticTypography from "../Components/overhaul/KineticTypography";
 
-/* Reusing the SkillSection logic but with new styling */
 const CyberSkillSection = ({ title, skills, accentColor }) => (
   <div className="mb-12">
-    <h3 className={`text-xl font-mono uppercase mb-6 ${accentColor} border-l-4 pl-4 border-current`}>
+    <h3
+      className="mb-6 border-l-4 pl-4 font-mono text-xl uppercase"
+      style={{ color: accentColor, borderColor: "currentColor" }}
+    >
       {title}
     </h3>
     <div className="flex flex-wrap gap-4">
@@ -23,26 +24,28 @@ const CyberSkillSection = ({ title, skills, accentColor }) => (
         return (
           <motion.div
             key={index}
-            whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.1)" }}
-            className="relative px-4 py-3 bg-white/5 border border-white/10 backdrop-blur-sm group overflow-hidden"
+            whileHover={{ scale: 1.1, backgroundColor: "var(--color-accent-soft)" }}
+            className="group relative overflow-hidden border px-4 py-3 backdrop-blur-sm theme-border theme-surface"
           >
-            {/* Glitch overlay on hover */}
-            <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 bg-current transition-opacity ${accentColor}`} />
-            
-            <div className="flex items-center gap-3 relative z-10">
-              {/* Render Icon Component */}
+            <div
+              className="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-20"
+              style={{ backgroundColor: accentColor }}
+            />
+
+            <div className="relative z-10 flex items-center gap-3">
               {IconComponent && (
-                <IconComponent 
-                  className="w-6 h-6 grayscale group-hover:grayscale-0 transition-all" 
-                  style={{ color: skill.color || '#fff' }}
+                <IconComponent
+                  className="h-6 w-6 grayscale transition-all group-hover:grayscale-0"
+                  style={{ color: skill.color || accentColor }}
                 />
               )}
-              <span className="text-sm font-bold tracking-wide text-gray-300 group-hover:text-white uppercase">{skill.name}</span>
+              <span className="group-hover-theme-text-primary text-sm font-bold uppercase tracking-wide theme-text-secondary">
+                {skill.name}
+              </span>
             </div>
-            
-            {/* Corner accents */}
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/20" />
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/20" />
+
+            <div className="absolute right-0 top-0 h-2 w-2 border-r border-t theme-border" />
+            <div className="absolute bottom-0 left-0 h-2 w-2 border-b border-l theme-border" />
           </motion.div>
         );
       })}
@@ -53,49 +56,50 @@ const CyberSkillSection = ({ title, skills, accentColor }) => (
 const Skills = () => {
   return (
     <motion.section
-      className="relative min-h-screen px-4 sm:px-12 py-20"
+      className="relative min-h-screen px-4 py-20 sm:px-12"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-        {/* Header */}
-       <div className="mb-16 relative z-10">
-            <div className="flex items-baseline gap-4">
-                 <span className="text-blue-500 font-mono text-sm tracking-widest">04 // CAPABILITIES</span>
-                 <div className="h-px flex-grow bg-blue-900/50" />
-            </div>
-            <KineticTypography text="TECH_STACK" className="text-5xl md:text-7xl mt-2" />
+      <div className="relative z-10 mb-16">
+        <div className="flex items-baseline gap-4">
+          <span className="font-mono text-sm tracking-widest theme-accent">
+            04 // CAPABILITIES
+          </span>
+          <div className="h-px flex-grow" style={{ backgroundColor: "var(--color-accent-track)" }} />
         </div>
+        <KineticTypography text="TECH_STACK" className="mt-2 text-5xl md:text-7xl" />
+      </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-x-12 md:grid-cols-2">
         <CyberSkillSection
           title="Programming Languages"
           skills={programmingLanguages}
-          accentColor="text-blue-400"
+          accentColor="#60a5fa"
         />
         <CyberSkillSection
           title="Frontend Development"
           skills={frontendDevelopment}
-          accentColor="text-cyan-400"
+          accentColor="#38bdf8"
         />
         <CyberSkillSection
           title="Backend & Database"
           skills={backendAndDatabase}
-          accentColor="text-emerald-400"
+          accentColor="#34d399"
         />
         <CyberSkillSection
           title="Dev Tools & Libraries"
           skills={librariesAndDevTools}
-          accentColor="text-purple-400"
+          accentColor="#c084fc"
         />
         <CyberSkillSection
           title="Cloud & Deployment"
           skills={cloudAndDeployment}
-          accentColor="text-amber-400"
+          accentColor="#fbbf24"
         />
-         <CyberSkillSection
+        <CyberSkillSection
           title="Design & Content"
           skills={designAndContent}
-          accentColor="text-pink-400"
+          accentColor="#f472b6"
         />
       </div>
     </motion.section>

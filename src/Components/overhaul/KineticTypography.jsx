@@ -9,7 +9,11 @@ const KineticTypography = ({ text, className = "" }) => {
         whileInView={{ y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-        className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500"
+        className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none text-transparent bg-clip-text"
+        style={{
+          backgroundImage:
+            "linear-gradient(90deg, var(--color-text-primary), var(--color-text-faint))",
+        }}
       >
         {text}
       </motion.h1>

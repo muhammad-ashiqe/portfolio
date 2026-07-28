@@ -1,12 +1,223 @@
 @import "tailwindcss";
 
-@import "tailwindcss";
+:root {
+  --color-bg: #050505;
+  --color-bg-elevated: #0b0d11;
+  --color-surface: rgba(10, 12, 16, 0.68);
+  --color-surface-strong: rgba(14, 17, 24, 0.84);
+  --color-panel: rgba(19, 24, 33, 0.46);
+  --color-text-primary: #f5f7fb;
+  --color-text-secondary: #d4dbe7;
+  --color-text-muted: #9aa7bd;
+  --color-text-faint: #738199;
+  --color-border: rgba(157, 173, 196, 0.2);
+  --color-border-strong: rgba(157, 173, 196, 0.34);
+  --color-accent: #60a5fa;
+  --color-accent-strong: #38bdf8;
+  --color-accent-soft: rgba(96, 165, 250, 0.18);
+  --color-accent-track: rgba(37, 99, 235, 0.42);
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+  --color-logo-bg: #f5f7fb;
+  --color-logo-fg: #050505;
+  --color-overlay: rgba(2, 6, 23, 0.62);
+  --color-overlay-soft: rgba(15, 23, 42, 0.28);
+  --color-selection-bg: #f5f7fb;
+  --color-selection-text: #050505;
+  --color-scroll-track: #07090d;
+  --color-scroll-thumb: #465269;
+  --color-scroll-thumb-hover: #d7e3ff;
+  --color-project-scroll-track: rgba(22, 27, 38, 0.8);
+  --color-grid-line: rgba(148, 163, 184, 0.16);
+  --canvas-bg: #050505;
+  --canvas-core: #171d2a;
+  --canvas-wire: #60a5fa;
+  --canvas-glow: rgba(96, 165, 250, 0.22);
+  --canvas-light-primary: #4f46e5;
+  --canvas-light-secondary: #ec4899;
+  --noise-opacity: 0.045;
+}
+
+:root[data-theme="light"] {
+  --color-bg: #eef3fb;
+  --color-bg-elevated: #ffffff;
+  --color-surface: rgba(255, 255, 255, 0.62);
+  --color-surface-strong: rgba(255, 255, 255, 0.82);
+  --color-panel: rgba(233, 240, 250, 0.64);
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #1e293b;
+  --color-text-muted: #475569;
+  --color-text-faint: #64748b;
+  --color-border: rgba(71, 85, 105, 0.18);
+  --color-border-strong: rgba(71, 85, 105, 0.34);
+  --color-accent: #2563eb;
+  --color-accent-strong: #0891b2;
+  --color-accent-soft: rgba(37, 99, 235, 0.12);
+  --color-accent-track: rgba(37, 99, 235, 0.28);
+  --color-success: #15803d;
+  --color-warning: #b45309;
+  --color-danger: #dc2626;
+  --color-logo-bg: #0f172a;
+  --color-logo-fg: #f8fafc;
+  --color-overlay: rgba(226, 232, 240, 0.56);
+  --color-overlay-soft: rgba(248, 250, 252, 0.38);
+  --color-selection-bg: #0f172a;
+  --color-selection-text: #f8fafc;
+  --color-scroll-track: #dbe4f0;
+  --color-scroll-thumb: #6b7d96;
+  --color-scroll-thumb-hover: #0f172a;
+  --color-project-scroll-track: rgba(203, 213, 225, 0.8);
+  --color-grid-line: rgba(37, 99, 235, 0.12);
+  --canvas-bg: #edf3fb;
+  --canvas-core: #bfd6f8;
+  --canvas-wire: #2563eb;
+  --canvas-glow: rgba(37, 99, 235, 0.18);
+  --canvas-light-primary: #2563eb;
+  --canvas-light-secondary: #0ea5e9;
+  --noise-opacity: 0.028;
+}
 
 @layer base {
-  body {
-    @apply bg-black text-white antialiased overflow-x-hidden;
-    /* Custom cursor hiding/handling handled by component */
+  html {
+    background: var(--color-bg);
   }
+
+  body {
+    @apply antialiased overflow-x-hidden;
+    background:
+      radial-gradient(circle at 78% 28%, var(--canvas-glow), transparent 18%),
+      radial-gradient(circle at top right, var(--color-accent-soft), transparent 28%),
+      radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.08), transparent 24%),
+      var(--color-bg);
+    color: var(--color-text-primary);
+    transition:
+      background-color 250ms ease,
+      color 250ms ease,
+      background 350ms ease;
+  }
+
+  a,
+  button,
+  input,
+  textarea {
+    transition:
+      color 200ms ease,
+      background-color 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.theme-bg {
+  background: var(--color-bg);
+}
+
+.theme-surface {
+  background: var(--color-surface);
+}
+
+.theme-surface-strong {
+  background: var(--color-surface-strong);
+}
+
+.theme-panel {
+  background: var(--color-panel);
+}
+
+.theme-text-primary {
+  color: var(--color-text-primary);
+}
+
+.theme-text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.theme-text-muted {
+  color: var(--color-text-muted);
+}
+
+.theme-text-faint {
+  color: var(--color-text-faint);
+}
+
+.theme-border {
+  border-color: var(--color-border);
+}
+
+.theme-border-strong {
+  border-color: var(--color-border-strong);
+}
+
+.theme-accent {
+  color: var(--color-accent);
+}
+
+.theme-accent-bg {
+  background: var(--color-accent);
+}
+
+.theme-accent-soft {
+  background: var(--color-accent-soft);
+}
+
+.theme-success {
+  color: var(--color-success);
+}
+
+.theme-logo {
+  background: var(--color-logo-bg);
+  color: var(--color-logo-fg);
+}
+
+.theme-overlay {
+  background: var(--color-overlay);
+}
+
+.theme-overlay-soft {
+  background: var(--color-overlay-soft);
+}
+
+.theme-grid {
+  background-image:
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+}
+
+.theme-placeholder-faint::placeholder {
+  color: var(--color-text-faint);
+}
+
+.theme-hover-text-primary:hover {
+  color: var(--color-text-primary);
+}
+
+.theme-hover-accent:hover {
+  color: var(--color-accent);
+}
+
+.theme-hover-border-strong:hover {
+  border-color: var(--color-border-strong);
+}
+
+.group:hover .group-hover-theme-text-primary {
+  color: var(--color-text-primary);
+}
+
+.group:hover .group-hover-theme-accent {
+  color: var(--color-accent);
+}
+
+.group:focus-within .group-focus-within-theme-accent {
+  color: var(--color-accent);
+}
+
+.theme-focus-border-accent:focus {
+  border-color: var(--color-accent);
 }
 
 /* Custom Scrollbar - Brutalist/Technical */
@@ -15,44 +226,41 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: var(--color-scroll-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border: 1px solid #000;
+  background: var(--color-scroll-thumb);
+  border: 1px solid var(--color-scroll-track);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #fff;
+  background: var(--color-scroll-thumb-hover);
 }
 
-/* Project Card Description Scrollbar - Matrix Theme */
 .project-description::-webkit-scrollbar {
   width: 4px;
 }
 
 .project-description::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: var(--color-project-scroll-track);
   border-radius: 2px;
 }
 
 .project-description::-webkit-scrollbar-thumb {
-  background: #16a34a; /* green-600 */
+  background: var(--color-accent);
   border-radius: 2px;
 }
 
 .project-description::-webkit-scrollbar-thumb:hover {
-  background: #22c55e; /* green-500 */
+  background: var(--color-accent-strong);
 }
 
-/* Selection Color */
 ::selection {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-text);
 }
 
-/* Clip Path Utilities */
 .clip-path-slant {
   clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
 }
@@ -61,7 +269,6 @@
   perspective: 1000px;
 }
 
-/* Typography Overrides */
 h1,
 h2,
 h3,
@@ -73,10 +280,9 @@ label {
     "Inter",
     system-ui,
     -apple-system,
-    sans-serif; /* Ensure you have a good sans font */
+    sans-serif;
 }
 
-/* Loading/Splash Animation helpers if needed */
 .typing-cursor {
   display: inline-block;
   animation: blink 1s infinite;

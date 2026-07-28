@@ -35,7 +35,7 @@ const programmingLanguages = [
   { id: 1, name: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
   { id: 2, name: "TypeScript", icon: SiTypescript, color: "#3178c6" },
   { id: 3, name: "Dart", icon: SiDart, color: "#0175c2" },
-  { id: 99, name: "Java", icon: FaJava, color: "#007396" },
+  // { id: 99, name: "Java", icon: FaJava, color: "#007396" },
 ];
 
 const frontendDevelopment = [
