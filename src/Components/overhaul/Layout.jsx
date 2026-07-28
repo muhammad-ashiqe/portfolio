@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Layout = ({ children }) => {
   return (
-    <div className="relative min-h-screen w-full bg-transparent text-white overflow-x-hidden selection:bg-blue-500 selection:text-white">
+    <div className="relative isolate min-h-screen w-full overflow-x-hidden theme-text-primary">
       <GlobalCanvas />
       <Atmospherics />
       <MagneticCursor />

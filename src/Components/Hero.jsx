@@ -28,71 +28,85 @@ const itemVariants = {
 const Hero = () => {
   return (
     <motion.section
-      className="relative min-h-screen flex flex-col justify-center px-6 sm:px-12 md:px-24 pt-20"
+      className="relative flex min-h-screen flex-col justify-center px-6 pt-20 sm:px-12 md:px-24"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      {/* Glitchy Decorative Elements */}
-      <div className="absolute top-32 right-10 md:right-32 w-24 h-24 border-r-2 border-t-2 border-blue-500/30 rounded-tr-3xl pointer-events-none" />
-      <div className="absolute bottom-20 left-10 md:left-24 w-16 h-16 border-l-2 border-b-2 border-pink-500/30 rounded-bl-2xl pointer-events-none" />
+      <div
+        className="pointer-events-none absolute right-10 top-32 h-24 w-24 rounded-tr-3xl border-r-2 border-t-2 md:right-32"
+        style={{ borderColor: "var(--color-accent-track)" }}
+      />
+      <div
+        className="pointer-events-none absolute bottom-20 left-10 h-16 w-16 rounded-bl-2xl border-b-2 border-l-2 md:left-24"
+        style={{ borderColor: "rgba(236, 72, 153, 0.28)" }}
+      />
 
-      {/* Main Headline */}
-      <div className="mb-8 z-10">
+      <div className="z-10 mb-8">
         <motion.p
           variants={itemVariants}
-          className="text-blue-400 font-mono mb-4 tracking-widest text-sm md:text-base uppercase"
+          className="mb-4 font-mono text-sm uppercase tracking-widest md:text-base theme-accent"
         >
           // System Online
         </motion.p>
 
         <KineticTypography
           text="ASHIQE"
-          className="mb-[-1rem] md:mb-[-2rem] z-20 relative mix-blend-difference"
+          className="relative z-20 mb-[-1rem] mix-blend-difference md:mb-[-2rem]"
         />
-        <KineticTypography text="DEV_" className="text-gray-500/50" />
+        <KineticTypography text="DEV_" className="opacity-50" />
       </div>
 
-      {/* Description */}
       <motion.div
         variants={itemVariants}
-        className="max-w-2xl backdrop-blur-sm bg-black/20 p-6 rounded-lg border-l-4 border-blue-500"
+        className="max-w-2xl border-l-4 p-6"
+        style={{ borderColor: "var(--color-accent)" }}
       >
-        <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-light">
+        <div
+          className="rounded-lg px-1 py-1 backdrop-blur-[2px]"
+          style={{
+            backgroundColor: "color-mix(in srgb, var(--color-overlay-soft) 72%, transparent)",
+          }}
+        >
+          <p className="text-lg font-light leading-relaxed theme-text-secondary md:text-xl">
           Software Engineer building{" "}
-          <span className="text-white font-bold">scalable</span> mobile & web
-          apps with <span className="text-blue-300">clean architecture</span>{" "}
-          and <span className="text-cyan-300">solid system design</span>.
-        </p>
+          <span className="font-bold theme-text-primary">scalable</span> mobile
+          {" "}and web apps with <span className="theme-accent">clean architecture</span>
+          {" "}and <span style={{ color: "var(--color-accent-strong)" }}>solid system design</span>.
+          </p>
+        </div>
       </motion.div>
 
-      {/* CTA Buttons */}
-      <motion.div
-        className="flex flex-wrap gap-6 mt-12"
-        variants={itemVariants}
-      >
+      <motion.div className="mt-12 flex flex-wrap gap-6" variants={itemVariants}>
         <a
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative px-8 py-3 bg-transparent overflow-hidden rounded-none border border-white/20 hover:border-blue-500 transition-colors duration-300"
+          className="group relative overflow-hidden rounded-none border px-8 py-3 transition-colors duration-300 theme-border theme-hover-border-strong"
+          style={{ backgroundColor: "var(--color-overlay-soft)" }}
         >
-          <div className="absolute inset-0 w-0 bg-blue-600 transition-all duration-[250ms] ease-out group-hover:w-full opacity-10" />
-          <span className="relative text-white font-mono tracking-wider group-hover:text-blue-300 flex items-center gap-2">
-            VIEW_RESUME <span className="text-xs">↗</span>
+          <div className="absolute inset-0 w-0 transition-all duration-[250ms] ease-out group-hover:w-full theme-accent-soft" />
+          <span className="group-hover-theme-accent relative flex items-center gap-2 font-mono tracking-wider theme-text-primary">
+            VIEW_RESUME <span className="text-xs">-&gt;</span>
           </span>
         </a>
 
         <Link to="/contact">
-          <button className="group relative px-8 py-3 bg-white text-black font-bold tracking-wider hover:bg-blue-400 hover:text-white transition-all duration-300 clip-path-slant">
+          <button
+            type="button"
+            className="clip-path-slant px-8 py-3 font-bold tracking-wider transition-all duration-300"
+            style={{
+              backgroundColor: "var(--color-text-primary)",
+              color: "var(--color-bg)",
+            }}
+          >
             CONTACT_ME
           </button>
         </Link>
       </motion.div>
 
-      {/* Social & Meta */}
       <motion.div
-        className="flex items-center gap-8 mt-16 md:absolute md:bottom-12 md:right-12"
+        className="mt-16 flex items-center gap-8 md:absolute md:bottom-12 md:right-12"
         variants={itemVariants}
       >
         {[
@@ -107,18 +121,22 @@ const Hero = () => {
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-500 hover:text-white text-2xl transition-transform hover:scale-125 duration-300"
+            className="theme-hover-text-primary text-2xl theme-text-faint transition-transform duration-300 hover:scale-125"
           >
             <i className={`fa-brands fa-${social.icon}`} />
           </a>
         ))}
-        <div className="h-px w-12 bg-gray-700" />
+        <div className="h-px w-12 theme-border" />
         <a
           href="tel:+919562647893"
-          className="group flex items-center gap-2 px-4 py-2 bg-transparent border border-gray-700 hover:border-blue-500 transition-all duration-300"
+          className="group flex items-center gap-2 border px-4 py-2 transition-all duration-300 theme-border theme-hover-border-strong"
+          style={{ backgroundColor: "var(--color-overlay-soft)" }}
         >
-          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-          <span className="text-gray-400 font-mono text-xs tracking-widest group-hover:text-blue-400">
+          <span
+            className="h-2 w-2 rounded-full animate-pulse"
+            style={{ backgroundColor: "var(--color-success)" }}
+          />
+          <span className="group-hover-theme-accent text-xs font-mono tracking-widest theme-text-muted">
             REQUEST_A_CALLBACK
           </span>
         </a>

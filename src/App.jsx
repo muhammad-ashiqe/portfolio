@@ -25,7 +25,7 @@ function AppContent() {
   }, [showSplash, setIsVisible, setShowSplash]);
 
   return (
-    <div className="app">
+    <div className="app theme-text-primary">
       {showSplash && <SplashQuote isVisible={isVisible} />}
 
       <Layout>

@@ -46,16 +46,18 @@ const MagneticCursor = () => {
         top: smoothMouse.y,
         height: cursorSize,
         width: cursorSize,
+        borderColor: "var(--color-text-primary)",
       }}
-      className="fixed z-[9999] pointer-events-none rounded-full border border-white mix-blend-difference hidden md:block" // Hidden on mobile
+      className="fixed z-[9999] pointer-events-none hidden rounded-full border mix-blend-difference md:block"
       animate={{
         scale: isHovering ? 1.5 : 1,
       }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
     >
       {/* Center dot */}
-      <div 
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full transition-all duration-300 ${isHovering ? 'w-2 h-2' : 'w-1 h-1'}`} 
+      <div
+        style={{ backgroundColor: "var(--color-text-primary)" }}
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-300 ${isHovering ? 'w-2 h-2' : 'w-1 h-1'}`}
       />
     </motion.div>
   );
