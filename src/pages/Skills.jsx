@@ -28,14 +28,18 @@ const CyberSkillSection = ({ title, skills, accentColor }) => (
             className="group relative overflow-hidden border px-4 py-3 backdrop-blur-sm theme-border theme-surface"
           >
             <div
-              className="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-20"
+              className="pointer-events-none absolute -inset-6 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-50"
+              style={{ background: `radial-gradient(circle, ${accentColor}, transparent 65%)` }}
+            />
+            <div
+              className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-20"
               style={{ backgroundColor: accentColor }}
             />
 
             <div className="relative z-10 flex items-center gap-3">
               {IconComponent && (
                 <IconComponent
-                  className="h-6 w-6 grayscale transition-all group-hover:grayscale-0"
+                  className="h-6 w-6 transition-transform duration-300 group-hover:scale-110"
                   style={{ color: skill.color || accentColor }}
                 />
               )}

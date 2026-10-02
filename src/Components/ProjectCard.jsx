@@ -24,6 +24,13 @@ const ProjectCard = ({ image, title, description, tools, github, demo }) => {
           }}
         />
         <div
+          className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{
+            background:
+              "radial-gradient(circle at center, color-mix(in srgb, var(--color-accent) 32%, transparent) 0%, transparent 68%)",
+          }}
+        />
+        <div
           className="pointer-events-none absolute inset-y-0 -left-1/3 z-10 w-1/2 translate-x-0 opacity-0 transition-all duration-500 group-hover:left-full group-hover:opacity-100"
           style={{
             background:
@@ -34,7 +41,7 @@ const ProjectCard = ({ image, title, description, tools, github, demo }) => {
         <img
           src={image}
           alt={title}
-          className="h-full w-full object-cover grayscale transition-transform duration-700 group-hover:scale-110 group-hover:grayscale-0"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
 
         <div className="absolute right-2 top-2 z-20">
