@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import {
   backendAndDatabase,
@@ -107,3 +107,5 @@ const Skills = () => {
 };
 
 export default Skills;
+
+CyberSkillSection.propTypes = { title: PropTypes.string, skills: PropTypes.arrayOf(PropTypes.object), accentColor: PropTypes.string };

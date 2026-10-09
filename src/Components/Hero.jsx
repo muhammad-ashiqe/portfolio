@@ -47,7 +47,7 @@ const Hero = () => {
           variants={itemVariants}
           className="mb-4 font-mono text-sm uppercase tracking-widest md:text-base theme-accent"
         >
-          // System Online
+          {"// System Online"}
         </motion.p>
 
         <KineticTypography

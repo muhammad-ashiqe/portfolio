@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -69,3 +70,7 @@ export function SplashQuote({ isVisible }) {
     </AnimatePresence>
   );
 }
+
+BootLine.propTypes = { text: PropTypes.string, index: PropTypes.number };
+
+SplashQuote.propTypes = { isVisible: PropTypes.bool };

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { cn } from "../lib/utils";
 
@@ -45,3 +46,9 @@ export const Badge = ({ children, className }) => (
     {children}
   </span>
 );
+
+Section.propTypes = { children: PropTypes.node, className: PropTypes.string, delay: PropTypes.number };
+
+SectionTitle.propTypes = { children: PropTypes.node, subtitle: PropTypes.string, align: PropTypes.string };
+
+Badge.propTypes = { children: PropTypes.node, className: PropTypes.string };

@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { GiSpanner } from "react-icons/gi";
 
@@ -139,3 +139,5 @@ const ProjectCard = ({ image, title, description, tools, github, demo }) => {
 };
 
 export default ProjectCard;
+
+ProjectCard.propTypes = { image: PropTypes.string, title: PropTypes.string, description: PropTypes.string, tools: PropTypes.arrayOf(PropTypes.string), github: PropTypes.string, demo: PropTypes.string };

@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import GlobalCanvas from "./GlobalCanvas";
 import Atmospherics from "./Atmospherics";
 import MagneticCursor from "./MagneticCursor";
@@ -25,3 +25,5 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+
+Layout.propTypes = { children: PropTypes.node };
