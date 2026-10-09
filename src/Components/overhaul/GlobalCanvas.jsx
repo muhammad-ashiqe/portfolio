@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import PropTypes from "prop-types";
+import { useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { MeshDistortMaterial, Sphere, Stars, Float } from "@react-three/drei";
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "../../context/theme-context";
 
 const Halo = ({ scale, isDark }) => {
   return (
@@ -235,3 +236,5 @@ const GlobalCanvas = () => {
 };
 
 export default GlobalCanvas;
+
+Halo.propTypes = { scale: PropTypes.number, isDark: PropTypes.bool };

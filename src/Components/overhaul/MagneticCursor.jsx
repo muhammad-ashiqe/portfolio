@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 
 const MagneticCursor = () => {
@@ -16,11 +16,11 @@ const MagneticCursor = () => {
     y: useSpring(mouse.y, smoothOptions),
   };
 
-  const manageMouseMove = (e) => {
+  const manageMouseMove = useCallback((e) => {
     const { clientX, clientY } = e;
     mouse.x.set(clientX - cursorSize / 2);
     mouse.y.set(clientY - cursorSize / 2);
-  };
+  }, [mouse.x, mouse.y, cursorSize]);
 
   const manageMouseOver = (e) => {
     if (e.target.tagName === "A" || e.target.tagName === "BUTTON" || e.target.closest('a') || e.target.closest('button')) {
@@ -37,7 +37,7 @@ const MagneticCursor = () => {
       window.removeEventListener("mousemove", manageMouseMove);
       window.removeEventListener("mouseover", manageMouseOver);
     };
-  }, [isHovering]);
+  }, [manageMouseMove]);
 
   return (
     <motion.div

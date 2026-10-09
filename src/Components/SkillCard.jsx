@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 
 const SkillCard = ({ icon: Icon, name, color }) => {
@@ -28,3 +28,5 @@ const SkillCard = ({ icon: Icon, name, color }) => {
 };
 
 export default SkillCard;
+
+SkillCard.propTypes = { icon: PropTypes.elementType, name: PropTypes.string, color: PropTypes.string };

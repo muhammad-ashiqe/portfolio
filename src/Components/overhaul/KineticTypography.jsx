@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 
 const KineticTypography = ({ text, className = "" }) => {
@@ -22,3 +22,5 @@ const KineticTypography = ({ text, className = "" }) => {
 };
 
 export default KineticTypography;
+
+KineticTypography.propTypes = { text: PropTypes.string, className: PropTypes.string };

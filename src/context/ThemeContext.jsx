@@ -1,7 +1,9 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { ThemeContext } from "./theme-context";
+import PropTypes from "prop-types";
+import { readPreference, savePreference } from "../forged/storage";
+import { useEffect, useMemo, useState } from "react";
 
 const STORAGE_KEY = "portfolio-theme";
-const ThemeContext = createContext(null);
 
 const getSystemTheme = () => {
   if (typeof window === "undefined") {
@@ -18,7 +20,7 @@ const getInitialTheme = () => {
     return "dark";
   }
 
-  const storedTheme = window.localStorage.getItem(STORAGE_KEY);
+  const storedTheme = readPreference(STORAGE_KEY, ["light", "dark"], null);
   if (storedTheme === "light" || storedTheme === "dark") {
     return storedTheme;
   }
@@ -33,7 +35,7 @@ export function ThemeProvider({ children }) {
       return false;
     }
 
-    const storedTheme = window.localStorage.getItem(STORAGE_KEY);
+    const storedTheme = readPreference(STORAGE_KEY, ["light", "dark"], null);
     return storedTheme === "light" || storedTheme === "dark";
   });
 
@@ -56,9 +58,9 @@ export function ThemeProvider({ children }) {
     document.documentElement.style.colorScheme = theme;
 
     if (hasExplicitPreference) {
-      window.localStorage.setItem(STORAGE_KEY, theme);
+      savePreference(STORAGE_KEY, theme);
     } else {
-      window.localStorage.removeItem(STORAGE_KEY);
+      savePreference(STORAGE_KEY, "system");
     }
   }, [hasExplicitPreference, theme]);
 
@@ -74,7 +76,7 @@ export function ThemeProvider({ children }) {
         );
       },
     }),
-    [hasExplicitPreference, theme],
+    [theme],
   );
 
   return (
@@ -82,12 +84,4 @@ export function ThemeProvider({ children }) {
   );
 }
 
-export function useTheme() {
-  const context = useContext(ThemeContext);
-
-  if (!context) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-
-  return context;
-}
+ThemeProvider.propTypes = { children: PropTypes.node };

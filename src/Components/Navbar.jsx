@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { MoonStar, SunMedium } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/theme-context";
 
 const NavItem = ({ to, label, index, onClick }) => {
   return (
@@ -198,3 +199,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+NavItem.propTypes = { to: PropTypes.string, label: PropTypes.string, index: PropTypes.number, onClick: PropTypes.func };
+
+ThemeToggle.propTypes = { mobile: PropTypes.bool };

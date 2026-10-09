@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import SkillCard from "./SkillCard";
 
@@ -57,3 +57,5 @@ const SkillSection = ({ title, skills }) => {
 };
 
 export default SkillSection;
+
+SkillSection.propTypes = { title: PropTypes.string, skills: PropTypes.arrayOf(PropTypes.object) };

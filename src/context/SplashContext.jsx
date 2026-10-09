@@ -1,6 +1,8 @@
-import { createContext, useState, useContext } from 'react';
+import { SplashContext } from "./splash-context";
+import PropTypes from "prop-types";
+import { useState } from 'react';
 
-const SplashContext = createContext();
+
 
 export function SplashProvider({ children }) {
   const [showSplash, setShowSplash] = useState(true);
@@ -18,6 +20,4 @@ export function SplashProvider({ children }) {
   );
 }
 
-export function useSplash() {
-  return useContext(SplashContext);
-}
+SplashProvider.propTypes = { children: PropTypes.node };

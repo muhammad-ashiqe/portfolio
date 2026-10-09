@@ -29,7 +29,7 @@ import {
   SiRazorpay,
   SiStripe,
 } from "react-icons/si";
-import { FaJava, FaFileWord } from "react-icons/fa";
+import { FaFileWord } from "react-icons/fa";
 
 const programmingLanguages = [
   { id: 1, name: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
