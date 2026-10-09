@@ -4,7 +4,12 @@ const browser = await chromium.launch();
 const results = [];
 await mkdir("artifacts", { recursive: true });
 try {
-  for (const mode of ["mobile", "desktop"]) {
+  for (const [mode, route] of [
+    ["mobile", "/"],
+    ["desktop", "/"],
+    ["mobile", "/projects"],
+    ["desktop", "/projects"],
+  ]) {
     const context = await browser.newContext({
       viewport:
         mode === "mobile"
@@ -37,7 +42,9 @@ try {
           if (!entry.hadRecentInput) window.forgedMetrics.cls += entry.value;
       }).observe({ type: "layout-shift", buffered: true });
     });
-    await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
+    await page.goto("http://127.0.0.1:4173" + route, {
+      waitUntil: "networkidle",
+    });
     await page.waitForTimeout(1000);
     const metrics = await page.evaluate(() => ({
       ...window.forgedMetrics,
@@ -46,9 +53,16 @@ try {
         .reduce((sum, r) => sum + r.transferSize, 0),
       canvas: document.querySelectorAll("canvas").length,
     }));
-    results.push({ mode, ...metrics, errors });
+    results.push({ mode, route, ...metrics, errors });
+    if (route === "/projects") {
+      for (const image of await page.locator(".project-image img").all()) {
+        await image.scrollIntoViewIfNeeded();
+        await image.evaluate((img) => img.decode());
+      }
+      await page.evaluate(() => window.scrollTo(0, 0));
+    }
     await page.screenshot({
-      path: `artifacts/final-${mode}.png`,
+      path: `artifacts/final-${mode}${route === "/" ? "" : "-projects"}.png`,
       fullPage: true,
     });
     await context.close();

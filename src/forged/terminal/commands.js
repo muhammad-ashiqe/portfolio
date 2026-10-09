@@ -1,3 +1,4 @@
+import { paletteIds } from "./palettes";
 import { tokenize } from "./parser";
 import { projects, projectMeta, skillGroups, filterProjects } from "../catalog";
 import { profile } from "../content";
@@ -14,7 +15,7 @@ import {
   resolvePath,
   entries,
 } from "./filesystem";
-export const initialSession = { cwd: HOME, palette: "green", history: [] };
+export const initialSession = { cwd: HOME, palette: "orange", history: [] };
 export const registry = {
   help: "List commands and arguments",
   whoami: "Professional introduction",
@@ -32,7 +33,7 @@ export const registry = {
   contact: "Contact options",
   socials: "Social profile links",
   resume: "Open resume link",
-  theme: "theme [green | amber] — terminal palette",
+  theme: `theme [${paletteIds.join(" | ")}] — terminal palette`,
   history: "Session command history",
   clear: "Clear output (Ctrl+L)",
   date: "Local date and time",
@@ -173,15 +174,17 @@ export function execute(input, previous = initialSession, now = new Date()) {
       case "resume":
         return result(files[HOME + "/resume.pdf"]());
       case "theme":
-        if (
-          args.length > 1 ||
-          (args.length && !["green", "amber"].includes(args[0]))
-        )
+        if (args.length > 1 || (args.length && !paletteIds.includes(args[0])))
           usage();
         if (args[0]) state.palette = args[0];
-        return result([
-          text(`Terminal theme: ${state.palette}. Options: green, amber.`),
-        ]);
+        return result(
+          [
+            text(
+              `Terminal theme: ${state.palette}. Options: ${paletteIds.join(", ")}.`,
+            ),
+          ],
+          { appearance: args[0] },
+        );
       case "history":
         return result(
           state.history.map((line, i) => text(`${i + 1}  ${line}`)),
@@ -205,7 +208,7 @@ export function complete(input, state = initialSession) {
   let candidates = Object.keys(registry);
   if (words.length > 1) {
     if (command === "project") candidates = projectMeta.map((p) => p.slug);
-    else if (command === "theme") candidates = ["green", "amber"];
+    else if (command === "theme") candidates = paletteIds;
     else if (command === "projects")
       candidates =
         words[1] === "--filter"

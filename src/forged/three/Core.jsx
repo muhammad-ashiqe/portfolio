@@ -1,3 +1,4 @@
+import { Eye, EyeOff } from "lucide-react";
 import { Component, lazy, Suspense, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { useReducedMotion } from "framer-motion";
@@ -62,6 +63,7 @@ export default function Core() {
   const reduced = useReducedMotion();
   const ref = useRef();
   const [visible, setVisible] = useState(false);
+  const [shown, setShown] = useState(true);
   const [supported, setSupported] = useState(false);
   const [failed, setFailed] = useState(false);
   const [rotation, setRotation] = useState(0);
@@ -105,33 +107,40 @@ export default function Core() {
   const live = supported && !reduced && !failed;
   return (
     <div className="core-stage" ref={ref}>
-      <div className="core-crosshair" aria-hidden="true" />
-      {live && visible ? (
-        <CoreBoundary onFailure={() => setFailed(true)}>
-          <Suspense fallback={<Diagram />}>
-            <Scene
-              resetCount={resetCount}
-              rotation={rotation}
-              onFailure={() => setFailed(true)}
-            />
-          </Suspense>
-        </CoreBoundary>
-      ) : (
-        <Diagram />
-      )}
+      <div
+        className="core-viewport"
+        style={{ visibility: shown ? "visible" : "hidden" }}
+      >
+        <div className="core-crosshair" aria-hidden="true" />
+        {!shown ? null : live && visible ? (
+          <CoreBoundary onFailure={() => setFailed(true)}>
+            <Suspense fallback={<Diagram />}>
+              <Scene
+                resetCount={resetCount}
+                rotation={rotation}
+                onFailure={() => setFailed(true)}
+              />
+            </Suspense>
+          </CoreBoundary>
+        ) : (
+          <Diagram />
+        )}
+      </div>
       <div className="core-controls">
         {live ? (
           <>
             <button
               onClick={() => setRotation((x) => x - 0.4)}
               aria-label="Rotate core left"
+              disabled={!shown}
             >
               ←
             </button>
-            <span>DRAG TO INSPECT</span>
+            <span>{shown ? "DRAG TO INSPECT" : "SCULPTURE HIDDEN"}</span>
             <button
               onClick={() => setRotation((x) => x + 0.4)}
               aria-label="Rotate core right"
+              disabled={!shown}
             >
               →
             </button>
@@ -141,13 +150,27 @@ export default function Core() {
                 setResetCount((value) => value + 1);
               }}
               aria-label="Reset core rotation"
+              disabled={!shown}
             >
               ↺
             </button>
           </>
         ) : (
-          <span>ENGINEERING CORE / STATIC VIEW</span>
+          <span>
+            {shown ? "ENGINEERING CORE / STATIC VIEW" : "SCULPTURE HIDDEN"}
+          </span>
         )}
+        <button
+          aria-label={shown ? "Hide 3D sculpture" : "Show 3D sculpture"}
+          title={shown ? "Hide 3D sculpture" : "Show 3D sculpture"}
+          onClick={() => setShown((current) => !current)}
+        >
+          {shown ? (
+            <Eye size={17} aria-hidden="true" />
+          ) : (
+            <EyeOff size={17} aria-hidden="true" />
+          )}
+        </button>
       </div>
     </div>
   );

@@ -72,7 +72,7 @@ node scripts/measure.js
 
 See `docs/VALIDATION.md` for measured results. Accessibility automation complements keyboard and visual checks; it is not a substitute for testing with actual screen readers and physical mobile keyboards. Local throttled performance is a lab sample, not a field-performance guarantee.
 
-The WebGL chunk remains comparatively large, but is optional, lazy loaded, and excluded from mobile and terminal routes. Missing case-study narratives remain intentionally unpublished. Existing project illustrations are retained exactly; supplying new screenshots or changing portfolio content requires separate owner authorization. The site has not been deployed, and a real EmailJS delivery has not been sent as part of validation.
+The WebGL chunk remains comparatively large, but is optional, lazy loaded, and excluded from mobile and terminal routes. Missing case-study narratives remain intentionally unpublished. Existing project illustrations are retained exactly as stored assets and image-error fallbacks. New decorative covers are documented in [REFINEMENTS.md](REFINEMENTS.md). The site has not been deployed, and a real EmailJS delivery has not been sent as part of validation.
 
 ## Implementation references
 
@@ -80,3 +80,7 @@ The WebGL chunk remains comparatively large, but is optional, lazy loaded, and e
 - [React Router search parameters](https://reactrouter.com/api/hooks/useSearchParams)
 - [Vite SSR builds](https://vite.dev/guide/ssr.html)
 - [Vercel rewrite filesystem precedence](https://vercel.com/docs/project-configuration/vercel-json#rewrites)
+
+## Visual refinement pass
+
+See [REFINEMENTS.md](REFINEMENTS.md) for the hero, stack, contact and terminal refinements, generated asset paths, prompts and current validation.

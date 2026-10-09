@@ -3,7 +3,7 @@ import { usePortfolio } from "../context";
 import { execute, complete } from "./commands";
 import { ExternalLink } from "../ui";
 import { profile } from "../content";
-import { savePreference } from "../storage";
+import { palettes, saveAppearance } from "./palettes";
 import PropTypes from "prop-types";
 function Output({ item }) {
   if (item.kind === "project")
@@ -62,7 +62,7 @@ export default function Terminal() {
   function submit(value = input) {
     if (!value.trim()) return;
     const result = execute(value, session);
-    savePreference("forged-terminal-theme", result.state.palette);
+    if (result.appearance) saveAppearance(result.appearance);
     follow.current =
       window.scrollY + window.innerHeight >=
       document.documentElement.scrollHeight - 150;
@@ -125,7 +125,12 @@ export default function Terminal() {
     }
   }
   return (
-    <section className={"terminal-page palette-" + session.palette}>
+    <section
+      className={"terminal-page palette-" + session.palette}
+      style={{
+        "--terminal": palettes.find((p) => p.id === session.palette).color,
+      }}
+    >
       <header className="terminal-header">
         <span>
           <i className="status-dot" /> ASHIQE SYSTEMS / PERSONAL ARCHIVE
@@ -137,6 +142,29 @@ export default function Terminal() {
           </button>
         </div>
       </header>
+      <div
+        className="terminal-appearance"
+        role="group"
+        aria-label="Terminal appearance"
+      >
+        <span>Appearance</span>
+        {palettes.map((p) => (
+          <button
+            key={p.id}
+            aria-pressed={session.palette === p.id}
+            onClick={() => {
+              saveAppearance(p.id);
+              setTerminal((current) => ({
+                ...current,
+                session: { ...current.session, palette: p.id },
+              }));
+            }}
+          >
+            <i style={{ background: p.color }} aria-hidden="true" />
+            {p.label}
+          </button>
+        ))}
+      </div>
       <div className="terminal-content">
         <div className="terminal-welcome">
           <span className="terminal-ascii" aria-hidden="true">

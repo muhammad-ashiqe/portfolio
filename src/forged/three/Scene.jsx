@@ -77,7 +77,7 @@ function Mechanism({ rotation, resetCount }) {
               >
                 <meshStandardMaterial
                   color={
-                    layer === 1 ? "#ff653b" : isDark ? "#a5aaa5" : "#343c37"
+                    layer === 1 ? "#ff653b" : isDark ? "#a5aaa5" : "#aeb8b1"
                   }
                   metalness={0.65}
                   roughness={0.3}

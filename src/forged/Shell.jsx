@@ -19,13 +19,17 @@ export function Navigation() {
   return (
     <header className="site-header">
       <Link className="brand" to="/" aria-label="Muhammad Ashiqe home">
-        <span className="brand-mark">
-          ma<span>↗</span>
-        </span>
-        <span className="brand-caption">
-          ASHIQE_SYSTEMS
-          <br />
-          <small>FORGED / PORTFOLIO</small>
+        <span className="brand-wordmark" aria-hidden="true">
+          {[..."ashiqe"].map((letter, index) => (
+            <span
+              className="brand-letter"
+              style={{ "--letter": index }}
+              key={index}
+            >
+              {letter}
+            </span>
+          ))}
+          <span className="brand-period">.</span>
         </span>
       </Link>
       <nav
@@ -90,7 +94,6 @@ export function Footer() {
       <Link to="/overview">
         Quick overview <ArrowUpRight size={14} />
       </Link>
-      <span>FORGED — 01</span>
     </footer>
   );
 }

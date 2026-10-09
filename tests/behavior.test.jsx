@@ -98,13 +98,13 @@ describe("contact", () => {
     emailjs.sendForm.mockReset();
   });
   const fill = () => {
-    fireEvent.change(screen.getByLabelText("NAME_INPUT"), {
+    fireEvent.change(screen.getByLabelText("Name"), {
       target: { value: "Visitor" },
     });
-    fireEvent.change(screen.getByLabelText("EMAIL_ADDRESS"), {
+    fireEvent.change(screen.getByLabelText("Email"), {
       target: { value: "visitor@example.com" },
     });
-    fireEvent.change(screen.getByLabelText("MESSAGE_BODY"), {
+    fireEvent.change(screen.getByLabelText("Message"), {
       target: { value: "Hello" },
     });
   };
@@ -114,7 +114,7 @@ describe("contact", () => {
         <Contact />
       </MemoryRouter>,
     );
-    fireEvent.click(screen.getByRole("button", { name: "EXECUTE_SEND" }));
+    fireEvent.click(screen.getByRole("button", { name: "Send Message" }));
     expect(document.activeElement.id).toBe("name");
     expect(emailjs.sendForm).not.toHaveBeenCalled();
   });
@@ -126,14 +126,14 @@ describe("contact", () => {
       </MemoryRouter>,
     );
     fill();
-    fireEvent.click(screen.getByRole("button", { name: "EXECUTE_SEND" }));
+    fireEvent.click(screen.getByRole("button", { name: "Send Message" }));
     await waitFor(() =>
       expect(screen.getByRole("status").textContent).toBe(
         "TRANSMISSION_COMPLETE",
       ),
     );
     expect(emailjs.sendForm.mock.calls[0][0]).toBe("test-service");
-    expect(screen.getByLabelText("NAME_INPUT").value).toBe("");
+    expect(screen.getByLabelText("Name").value).toBe("");
   });
   it("preserves input and reports sending failures", async () => {
     emailjs.sendForm.mockRejectedValue(new Error("offline"));
@@ -143,13 +143,41 @@ describe("contact", () => {
       </MemoryRouter>,
     );
     fill();
-    fireEvent.click(screen.getByRole("button", { name: "EXECUTE_SEND" }));
+    fireEvent.click(screen.getByRole("button", { name: "Send Message" }));
     await waitFor(() =>
       expect(screen.getByRole("status").textContent).toContain(
         "Failed to send",
       ),
     );
-    expect(screen.getByLabelText("MESSAGE_BODY").value).toBe("Hello");
+    expect(screen.getByLabelText("Message").value).toBe("Hello");
+  });
+  it("prevents duplicate submissions while a delivery is pending", async () => {
+    let resolve;
+    emailjs.sendForm.mockImplementation(
+      () =>
+        new Promise((done) => {
+          resolve = done;
+        }),
+    );
+    render(
+      <MemoryRouter>
+        <Contact />
+      </MemoryRouter>,
+    );
+    fill();
+    const form = screen.getByLabelText("Name").closest("form");
+    fireEvent.submit(form);
+    fireEvent.submit(form);
+    expect(emailjs.sendForm).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole("button", { name: "Sending…" }).disabled).toBe(
+      true,
+    );
+    resolve({ status: 200 });
+    await waitFor(() =>
+      expect(screen.getByRole("status").textContent).toBe(
+        "TRANSMISSION_COMPLETE",
+      ),
+    );
   });
   it("offers contact links when configuration is missing", () => {
     vi.stubEnv("VITE_EMAILJS_SERVICE_ID", "");
@@ -159,7 +187,7 @@ describe("contact", () => {
       </MemoryRouter>,
     );
     fill();
-    fireEvent.click(screen.getByRole("button", { name: "EXECUTE_SEND" }));
+    fireEvent.click(screen.getByRole("button", { name: "Send Message" }));
     expect(screen.getByRole("status").textContent).toContain("unavailable");
     expect(emailjs.sendForm).not.toHaveBeenCalled();
   });

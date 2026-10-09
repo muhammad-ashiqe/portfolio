@@ -7,7 +7,7 @@
 - Original main JavaScript bundle: 1,207.10 KB (351.57 KB gzip).
 - No existing automated test suite.
 
-## Final checks
+## Initial redesign checks
 
 - Content preservation tests compare the original project/skill declarations and comments, experience, education, introduction, links, original source archive, and every original public asset checksum.
 - Vitest: 17 tests covering preservation, terminal commands/navigation/completion/errors, storage failures, GUI content consistency, and mocked EmailJS success/error/validation/missing configuration.
@@ -38,3 +38,11 @@ Reviewed desktop dark/light hero, mobile hero, desktop/mobile work, mobile stack
 - The large optional Three.js chunk can be further optimized later; it does not block the hero text or load in mobile/terminal mode.
 - Performance measurements are local lab samples, not field Core Web Vitals.
 - Missing case-study narratives and new screenshots are intentionally omitted to honor the exact-content contract.
+
+## Refinement validation — 2026-10-09
+
+The latest pass has 24 passing unit tests and 33 passing browser tests across all three engines. Original records/assets still pass the unchanged preservation gates. Build and lint pass. The six new covers, palette migration, contact duplicate guard and interactive stack were checked. Full methods, measurements, screenshots and limits are recorded in [REFINEMENTS.md](REFINEMENTS.md).
+
+## Hero, skills and identity follow-up
+
+Latest checks cover 24 unit tests and 39 browser scenarios, including stable hover layout and scroll, click-only details, exact silhouette compositing, hidden mobile sculpture, visible branding removal, gallery removal and the new favicon. See the follow-up section in [REFINEMENTS.md](REFINEMENTS.md). The initial failed hover test was corrected to keep all tested buttons onscreen; the affected scenarios passed in all three engines on rerun.

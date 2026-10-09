@@ -5,11 +5,14 @@ import { SectionHeading, ExternalLink } from "./ui";
 import { profile } from "./content";
 export default function Contact() {
   const formRef = useRef();
+  const submitting = useRef(false);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
   async function submit(event) {
     event.preventDefault();
+    if (submitting.current) return;
+    setStatus("");
     const data = new FormData(formRef.current);
     const next = {};
     if (!data.get("name").trim()) next.name = "Name is required";
@@ -32,6 +35,7 @@ export default function Contact() {
       );
       return;
     }
+    submitting.current = true;
     setBusy(true);
     setStatus("");
     try {
@@ -46,6 +50,7 @@ export default function Contact() {
     } catch {
       setStatus("Failed to send message. Please try again later.");
     } finally {
+      submitting.current = false;
       setBusy(false);
     }
   }
@@ -77,11 +82,18 @@ export default function Contact() {
             ✳
           </span>
         </div>
-        <form ref={formRef} onSubmit={submit} noValidate>
+        <form
+          className="contact-form"
+          ref={formRef}
+          onSubmit={submit}
+          noValidate
+          aria-busy={busy}
+        >
+          <h2>Send a message</h2>
           {[
-            ["name", "NAME_INPUT", "text", "ENTER NAME..."],
-            ["email", "EMAIL_ADDRESS", "email", "ENTER EMAIL..."],
-            ["message", "MESSAGE_BODY", "textarea", "TYPE MESSAGE HERE..."],
+            ["name", "Name", "text", "ENTER NAME..."],
+            ["email", "Email", "email", "ENTER EMAIL..."],
+            ["message", "Message", "textarea", "TYPE MESSAGE HERE..."],
           ].map(([name, label, type, placeholder]) => (
             <div className="form-field" key={name}>
               <label htmlFor={name}>{label}</label>
@@ -89,7 +101,7 @@ export default function Contact() {
                 <textarea
                   id={name}
                   name={name}
-                  rows={5}
+                  rows={7}
                   placeholder={placeholder}
                   required
                   aria-invalid={!!errors[name]}
@@ -115,11 +127,22 @@ export default function Contact() {
             </div>
           ))}
           <button className="button primary" disabled={busy} type="submit">
-            {busy ? "TRANSMITTING..." : "EXECUTE_SEND"}{" "}
-            <ArrowUpRight size={18} />
+            {busy ? "Sending…" : "Send Message"} <ArrowUpRight size={18} />
           </button>
-          <p role="status" className="form-status">
-            {status}
+          <p
+            role="status"
+            className={
+              "form-status " +
+              (busy
+                ? "sending"
+                : status === "TRANSMISSION_COMPLETE"
+                  ? "success"
+                  : status
+                    ? "failure"
+                    : "")
+            }
+          >
+            {busy ? "Sending your message…" : status}
           </p>
         </form>
       </div>

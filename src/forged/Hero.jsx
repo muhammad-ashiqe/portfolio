@@ -1,6 +1,13 @@
 import { MagneticLink } from "./Motion";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ArrowDownRight, Download } from "lucide-react";
+import {
+  ArrowUpRight,
+  ArrowDownRight,
+  Download,
+  Github,
+  Linkedin,
+  Phone,
+} from "lucide-react";
 import { profile } from "./content";
 import { ExternalLink } from "./ui";
 import Core from "./three/Core";
@@ -17,9 +24,40 @@ export default function Hero() {
         <div className="hero-title">
           <p className="eyebrow">MUHAMMAD</p>
           <h1>
-            ASHIQE<span className="signal">.</span>
+            <span className="hero-name-line">
+              <span className="hero-name">
+                <span className="name-fill">ASHIQE</span>
+                <span className="name-overlap" aria-hidden="true">
+                  ASHIQE
+                </span>
+              </span>
+              <span className="signal">.</span>
+            </span>
             <span className="outline-word">DEV_</span>
           </h1>
+          <div className="hero-profile-links">
+            {profile.socials.map((s) => (
+              <ExternalLink
+                className="button profile-button"
+                key={s.label}
+                href={s.url}
+              >
+                {s.label === "github" ? (
+                  <Github size={17} />
+                ) : (
+                  <Linkedin size={17} />
+                )}
+                {s.label}
+              </ExternalLink>
+            ))}
+            <ExternalLink
+              className="button profile-button"
+              href={profile.resume}
+            >
+              <Download size={17} />
+              View Resume
+            </ExternalLink>
+          </div>
         </div>
         <div className="hero-art">
           <Core />
@@ -45,23 +83,13 @@ export default function Hero() {
           <Link className="text-link" to="/contact">
             Contact <ArrowUpRight size={16} />
           </Link>
-          <ExternalLink className="text-link" href={profile.resume}>
-            VIEW_RESUME <Download size={15} />
-          </ExternalLink>
+          <a href={profile.phone} className="button callback">
+            <Phone size={17} />
+            Request a Callback
+          </a>
         </div>
       </div>
       <div className="hero-rail">
-        <div className="social-links">
-          {profile.socials.map((s) => (
-            <ExternalLink href={s.url} key={s.label}>
-              {s.label}
-              <ArrowUpRight size={13} />
-            </ExternalLink>
-          ))}
-        </div>
-        <a href={profile.phone} className="callback">
-          REQUEST_A_CALLBACK <ArrowUpRight size={14} />
-        </a>
         <Link to="/overview" className="overview-link">
           Quick overview <ArrowDownRight size={18} />
         </Link>

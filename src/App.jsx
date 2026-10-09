@@ -1,3 +1,4 @@
+import { readAppearance } from "./forged/terminal/palettes";
 import { ScrollProgress } from "./forged/Motion";
 import {
   lazy,
@@ -45,11 +46,7 @@ export default function App() {
   const [terminal, setTerminal] = useState(() => ({
     session: {
       ...initialSession,
-      palette: readPreference(
-        "forged-terminal-theme",
-        ["green", "amber"],
-        "green",
-      ),
+      palette: readAppearance(),
     },
     entries: [],
     input: "",

@@ -1,3 +1,4 @@
+import ProjectArtwork from "./ProjectArtwork";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import {
   ArrowUpRight,
@@ -105,13 +106,7 @@ export default function Projects() {
               <span>/ 06</span>
             </div>
             <Link to={"/projects/" + meta.slug} className="project-image">
-              <img
-                src={project.image}
-                alt={project.title}
-                width="400"
-                height="300"
-                loading="lazy"
-              />
+              <ProjectArtwork project={project} slug={meta.slug} />
               <span className="image-corner">
                 <ArrowUpRight size={25} />
               </span>
@@ -171,7 +166,7 @@ export function ProjectDetail() {
         punctuate={false}
       />
       <div className="detail-layout">
-        <img src={project.image} alt={project.title} width="400" height="300" />
+        <ProjectArtwork key={slug} project={project} slug={slug} eager />
         <div>
           <p className="detail-description">{project.description}</p>
           <div className="tags">
